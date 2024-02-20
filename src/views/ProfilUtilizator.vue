@@ -20,13 +20,6 @@ export default{
     }
   },
     computed: {
-      friendsList() {
-        const listaUs = JSON.parse(localStorage.getItem('listUser'));
-        return this.user.friends.map(email => {
-          const friend = listaUs.find(user => user.email === email);
-          return friend ? { email: friend.email, username: friend.username, image: friend.profilePicture } : null;
-        }).filter(friend => friend !== null);
-      },
       isCurrentUser() {
         const loggedInUserEmail = localStorage.getItem('loggedInUser');
         const loggedInUsername = localStorage.getItem('username');
@@ -36,12 +29,6 @@ export default{
     methods: {
       toggleEdit() {
         this.editing = true;
-      },
-      showFriendsModal() {
-        this.showModal = true;
-      },
-      closeFriendsModal() {
-        this.showModal = false;
       },
       saveChangesToLocalStorage() {
         const loggedInUserEmail = localStorage.getItem('loggedInUser');
@@ -66,26 +53,6 @@ export default{
         this.$router.push({ name: 'profilUtilizator', params: { username: this.user.username }});
       },
 
-      addFriend() {
-        const loggedInUserEmail = localStorage.getItem('loggedInUser');
-        const listaUs = JSON.parse(localStorage.getItem('listUser'));
-
-        const currentUserIndex = listaUs.findIndex(user => user.email === loggedInUserEmail);
-
-        if (currentUserIndex !== -1) {
-          if (!listaUs[currentUserIndex].friends) {
-            listaUs[currentUserIndex].friends = [];
-          }
-          if (listaUs[currentUserIndex].friends.includes(this.user.email)) {
-            alert("Utilizatorul se află deja în lista de prieteni.");
-          } else {
-            listaUs[currentUserIndex].friends.push(this.user.email);
-            localStorage.setItem('listUser', JSON.stringify(listaUs));
-            alert("Utilizatorul a fost adăugat la lista de prieteni.");
-          }
-        }
-      },
-
     },
   }
 </script>
@@ -97,26 +64,7 @@ export default{
       ></UserProfileForm>
     </div>
     <button v-if="isCurrentUser" @click="toggleEdit" class="button" :style="{ display: !editing ? 'block' : 'none' }">Editeaza Profil</button>
-    <button v-if="!isCurrentUser" @click="addFriend" class="button">Adauga Prieten</button>
-    <button v-if="isCurrentUser" @click="showFriendsModal" class="button">Afiseaza lista de prieteni</button>
     <button @click="saveChangesToLocalStorage" class="button" :style="{ display: editing ? 'block' : 'none' }">Salveaza Modificari</button>
-  </div>
-
-  <div class="modal-overlay" v-if="showModal">
-    <div class="modal-topic">
-      <span class="close" @click="closeFriendsModal">×</span>
-      <div class="modal-content" >
-        <h2 style="color:black;">Lista de prieteni</h2>
-        <ul>
-          <li v-for="(friend, friendIndex) in friendsList" :key="friendIndex">
-            <div style="display: flex; align-items: center;">
-              <img :src="friend.image" alt="Avatar" >
-              <p style="color:black;"><strong>{{ friend.username }}</strong></p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
   </div>
 </template>
 <style scoped>
@@ -155,38 +103,6 @@ export default{
   cursor: pointer;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
   transform: scale(1.05);
-}
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 999999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: fadeIn 0.5s linear;
-}
-.modal-topic {
-  background-color: white;
-  padding: 20px;
-  border-radius: 20px;
-  max-width: 80%;
-  width: 500px;
-  border: 4px solid  #00004d;
-  margin-top:20px;
-  margin-bottom:20px;
-}
-.modal-content {
-  margin-top: 20px;
-}
-.close {
-  position: relative;
-  cursor: pointer;
-  font-size: 50px;
-  color:black;
 }
 li {
   list-style-type: none;
