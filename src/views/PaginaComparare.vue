@@ -6,247 +6,171 @@ export default {
   data(){
     return {
       carData: bazaDateMasini,
-      selectedMarca1: '',
-      selectedModel1: '',
-      selectedCaroserie1: '',
-      selectedMotorizare1: '',
-
-      selectedMarca2: '',
-      selectedModel2: '',
-      selectedCaroserie2: '',
-      selectedMotorizare2: '',
+      cars: {
+        carA: {
+          selectedMarca: '',
+          selectedModel: '',
+          selectedCaroserie: '',
+          selectedMotorizare: '',
+        },
+        carB: {
+          selectedMarca: '',
+          selectedModel: '',
+          selectedCaroserie: '',
+          selectedMotorizare: '',
+        },
+      },
 
       showInfo: false,
-      comparareRezultate: {}
+      comparareRezultate: {},
+      allProperties: {},
+      keys : ['Anii de fabricatie', 'Consumul urban(l/100km)', 'Consumul pe autostrada(l/100km)', 'Consumul mixt(l/100km)', 'Acceleratie(0-100km/h)(secunde)', 'Viteza maxima(km/h)', 'Standard ecologic', 'Raport putere/greutate(CP/tona)', 'Raport cuplu/greutate(Nm/tona)', 'Capacitate cilindrica(cc)', 'Putere(hp)', 'Cuplu(Nm)', 'Masa proprie(kg)', 'Masa maxima autorizata(kg)', 'Volumul minim al portbagajului(l)', 'Volumul rezervorului(l)'],
+      isHigherBetter: {
+        'Anii de fabricatie': true,
+        'Consumul urban(l/100km)': false,
+        'Consumul pe autostrada(l/100km)': false,
+        'Consumul mixt(l/100km)': false,
+        'Acceleratie(0-100km/h)(secunde)': false,
+        'Viteza maxima(km/h)': true,
+        'Standard ecologic': true,
+        'Raport putere/greutate(CP/tona)': true,
+        'Raport cuplu/greutate(Nm/tona)': true,
+        'Capacitate cilindrica(cc)': true,
+        'Putere(hp)': true,
+        'Cuplu(Nm)': true,
+        'Masa proprie(kg)': false,
+        'Masa maxima autorizata(kg)': true,
+        'Volumul minim al portbagajului(l)': true,
+        'Volumul rezervorului(l)': true,
+      },
     }
   },
 
   computed: {
-    selectedMarca1Models() {
-      return this.carData[this.selectedMarca1] || {};
+    selectedModels() {
+      return {
+        carA: this.carData[this.cars.carA.selectedMarca] || {},
+        carB: this.carData[this.cars.carB.selectedMarca] || {},
+      };
     },
-    selectedModel1Caroserii() {
-      return this.selectedMarca1Models[this.selectedModel1] || {};
+    selectedCaroserii() {
+      return {
+        carA: this.selectedModels.carA[this.cars.carA.selectedModel] || {},
+        carB: this.selectedModels.carB[this.cars.carB.selectedModel] || {},
+      };
     },
-    selectedCaroserie1Motorizari() {
-      return this.selectedModel1Caroserii[this.selectedCaroserie1] || {};
+    selectedMotorizari() {
+      return {
+        carA: this.selectedCaroserii.carA[this.cars.carA.selectedCaroserie] || {},
+        carB: this.selectedCaroserii.carB[this.cars.carB.selectedCaroserie] || {},
+      };
     },
-    selectedMarca2Models() {
-      return this.carData[this.selectedMarca2] || {};
-    },
-    selectedModel2Caroserii() {
-      return this.selectedMarca2Models[this.selectedModel2] || {};
-    },
-    selectedCaroserie2Motorizari() {
-      return this.selectedModel2Caroserii[this.selectedCaroserie2] || {};
-    }
   },
 
   methods: {
-    compareValues(value1, value2) {
-      if (value1 > value2) {
-        return 'A';
-      } else if (value1 < value2) {
-        return 'B';
+    compareValues(value1, value2, isHigherBetter) {
+      if (isHigherBetter) {
+        return { winner: value1 > value2 ? 'carA' : (value1 < value2 ? 'carB' : 'TIE'), isHigherBetter };
       } else {
-        return 0;
+        return { winner: value1 < value2 ? 'carA' : (value1 > value2 ? 'carB' : 'TIE'), isHigherBetter };
       }
     },
+
     comparareButon() {
-      if (this.selectedMarca1 && this.selectedModel1 && this.selectedCaroserie1 && this.selectedMotorizare1 && this.selectedMarca2 && this.selectedModel2 && this.selectedCaroserie2 && this.selectedMotorizare2) {
+      let carA = this.cars.carA;
+      let carB = this.cars.carB;
+      if (carA.selectedMarca && carA.selectedModel && carA.selectedCaroserie && carA.selectedMotorizare && carB.selectedMarca && carB.selectedModel && carB.selectedCaroserie && carB.selectedMotorizare) {
         this.showInfo = true;
-        this.comparareRezultate = {
-          anFabricatie: this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].an_fabricatie, this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].an_fabricatie),
-          consumUrban: this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].consum_urban, this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].consum_urban),
-          consumAutostrada: this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].consum_autostrada, this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].consum_autostrada),
-          consumMixt: this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].consum_mixt, this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].consum_mixt),
-          acceleratie: this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].acceleratie, this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].acceleratie),
-          vitezaMaxima: this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].viteza_maxima, this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].viteza_maxima),
-          standardEco: this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].euro, this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].euro),
-          rapGrPut: this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].rap_greutate_putere, this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].rap_greutate_putere),
-          rapGrCup: this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].rap_greutate_cuplu, this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].rap_greutate_cuplu),
-          Cilindree:this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].cilindree,this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].cilindree),
-          Putere:this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].putere,this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].putere),
-          Cuplu:this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].cuplu,this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].cuplu),
-          masaProprie:this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].greutate,this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].greutate),
-          masaMaxima:this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].masa_maxima,this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].masa_maxima),
-          volumPortbagaj:this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].volum_portbagaj,this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].volum_portbagaj),
-          volumRezervor:this.compareValues(this.carData[this.selectedMarca1][this.selectedModel1][this.selectedCaroserie1][this.selectedMotorizare1].volum_rezervor,this.carData[this.selectedMarca2][this.selectedModel2][this.selectedCaroserie2][this.selectedMotorizare2].volum_rezervor),
-      };
+        let allKeys = Object.keys(this.carData[carA.selectedMarca][carA.selectedModel][carA.selectedCaroserie][carA.selectedMotorizare]);
+        this.comparareRezultate = {};
+        this.allProperties = {};
+        for (let key of allKeys) {
+          if (this.keys.includes(key)) {
+            this.comparareRezultate[key] = this.compareValues(this.carData[carA.selectedMarca][carA.selectedModel][carA.selectedCaroserie][carA.selectedMotorizare][key], this.carData[carB.selectedMarca][carB.selectedModel][carB.selectedCaroserie][carB.selectedMotorizare][key], this.isHigherBetter[key]);
+          }
+          this.allProperties[key] = this.carData[carA.selectedMarca][carA.selectedModel][carA.selectedCaroserie][carA.selectedMotorizare][key];
+        }
       }
-    },
+    }
   },
 }
 </script>
 <template>
   <div class="container">
     <div class="form-container">
-      <div class="form">
-        <h2>Masina A</h2>
-        <form action="/carA" method="post">
-          <label for="marca1">1) Alege marca masinii:</label><br>
-          <select v-model="selectedMarca1">
+      <div v-for="(car, carKey) in cars" :key="carKey" class="form">
+        <h2>{{ carKey }}</h2>
+        <form :action="'/' + carKey" method="post">
+          <label :for="'marca' + carKey">1) Alege marca masinii:</label><br>
+          <select v-model="car.selectedMarca">
             <option value="" selected>Alege marca</option>
             <option v-for="(value, key) in carData" :value="key" :key="key">{{ key }}</option>
           </select>
 
           <br><br>
 
-          <label for="model1">2) Alege modelul masinii:</label><br>
-          <select v-model="selectedModel1">
+          <label :for="'model' + carKey">2) Alege modelul masinii:</label><br>
+          <select v-model="car.selectedModel">
             <option value="" selected>Alege modelul</option>
-            <option v-for="(value, key) in selectedMarca1Models" :value="key" :key="key">{{ key }}</option>
+            <option v-for="(value, key) in selectedModels[carKey]" :value="key" :key="key">{{ key }}</option>
           </select>
 
           <br><br>
 
-          <label for="caroserie1">3) Alege tipul caroseriei masinii:</label><br>
-          <select v-model="selectedCaroserie1">
+          <label :for="'caroserie' + carKey">3) Alege tipul caroseriei masinii:</label><br>
+          <select v-model="car.selectedCaroserie">
             <option value="" selected>Alege tipul caroseriei</option>
-            <option v-for="(value, key) in selectedModel1Caroserii" :value="key" :key="key">{{ key }}</option>
+            <option v-for="(value, key) in selectedCaroserii[carKey]" :value="key" :key="key">{{ key }}</option>
           </select>
 
           <br><br>
 
-          <label for="motorizare1">4) Alege motorizarea masinii:</label><br>
-          <select v-model="selectedMotorizare1">
+          <label :for="'motorizare' + carKey">4) Alege motorizarea masinii:</label><br>
+          <select v-model="car.selectedMotorizare">
             <option value="" selected>Alege motorizarea</option>
-            <option v-for="(value, key) in selectedCaroserie1Motorizari" :value="key" :key="key">{{ key }}</option>
-          </select>
-        </form>
-      </div>
-      <div class="form">
-        <h2>Masina B</h2>
-        <form action="/carB" method="post">
-          <label for="marca2">1) Alege marca masinii:</label><br>
-          <select v-model="selectedMarca2">
-            <option value="" selected>Alege marca</option>
-            <option v-for="(value, key) in carData" :value="key" :key="key">{{ key }}</option>
-          </select>
-
-          <br><br>
-
-          <label for="model2">2) Alege modelul masinii:</label><br>
-          <select v-model="selectedModel2">
-            <option value="" selected>Alege modelul</option>
-            <option v-for="(value, key) in selectedMarca2Models" :value="key" :key="key">{{ key }}</option>
-          </select>
-
-          <br><br>
-
-          <label for="caroserie2">3) Alege tipul caroseriei masinii:</label><br>
-          <select v-model="selectedCaroserie2">
-            <option value="" selected>Alege tipul caroseriei</option>
-            <option v-for="(value, key) in selectedModel2Caroserii" :value="key" :key="key">{{ key }}</option>
-          </select>
-
-          <br><br>
-
-          <label for="motorizare2">4) Alege motorizarea masinii:</label><br>
-          <select v-model="selectedMotorizare2">
-            <option value="" selected>Alege motorizarea</option>
-            <option v-for="(value, key) in selectedCaroserie2Motorizari" :value="key" :key="key">{{ key }}</option>
+            <option v-for="(value, key) in selectedMotorizari[carKey]" :value="key" :key="key">{{ key }}</option>
           </select>
         </form>
       </div>
     </div>
+
     <button class="button" @click="comparareButon"><b>Start Comparare</b></button>
-    <div id="informatiiSelectate" class="afisare" v-if="showInfo">
-      <div class="informatii-masina" id="informatii-masina-a">
-        <img :src="carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].imagine" alt="Mașină">
-        <ul>
-          <li>Marca: {{ selectedMarca1 }}</li>
-          <li>Model: {{ selectedModel1 }}</li>
-          <li>Caroserie: {{ selectedCaroserie1 }}</li>
-          <li>Motorizare: {{ selectedMotorizare1 }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.anFabricatie === 'A' ? 'green' : comparareRezultate.anFabricatie === 'B' ? 'red' : 'grey'}">Anii de fabricatie: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].an_fabricatie }}</li>
-          <li>Numar de scaune: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].nrscaune }}</li>
-          <li>Numar de usi: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].nrusi }}</li>
-          <p style="color:#339966">Performanta</p>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.consumUrban === 'A' ? 'red' : comparareRezultate.consumUrban === 'B' ? 'green' : 'grey'}">Consumul urban(l/100km): {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].consum_urban }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.consumAutostrada === 'A' ? 'red' : comparareRezultate.consumAutostrada === 'B' ? 'green' : 'grey' }">Consumul pe autostrada(l/100km): {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].consum_autostrada }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.consumMixt === 'A' ? 'red' : comparareRezultate.consumMixt === 'B' ? 'green' : 'grey'}">Consum mixt(l/100km): {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].consum_mixt }}</li>
-          <li>Tipul carburantului: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].carburant }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.acceleratie === 'A' ? 'red' : comparareRezultate.acceleratie === 'B' ? 'green' : 'grey'}">Acceleratie(0-100km/h)(secunde): {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].acceleratie }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.vitezaMaxima === 'A' ? 'green' : comparareRezultate.vitezaMaxima ==='B' ? 'red' : 'grey' }">Viteza maxima: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].viteza_maxima }}</li>
-          <li>Standardul ecologic: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].euro }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.rapGrPut === 'A' ? 'red' : comparareRezultate.rapGrPut === 'B' ? 'green' : 'grey'}">Raport greutate/putere: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].rap_greutate_putere }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.rapGrCup === 'A' ? 'red' : comparareRezultate.rapGrCup === 'B' ? 'green' : 'grey'}">Raport greutate/cuplu: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].rap_greutate_cuplu }}</li>
-          <p style="color:#339966">Motorul</p>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.Cilindree === 'A' ? 'green' : comparareRezultate.Cilindree === 'B' ? 'red' : 'grey'}">Cilindree: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].cilindree }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.Putere === 'A' ? 'green' : comparareRezultate.Putere === 'B' ? 'red' : 'grey'}">Putere: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].putere }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.Cuplu === 'A' ? 'green' : comparareRezultate.Cuplu === 'B' ? 'red' : 'grey'}">Cuplu: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].cuplu }}</li>
-          <li>Codul Motor: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].cod_motor }}</li>
-          <li>Configuratia motorului: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].configuratie }}</li>
-          <li>Tipul de aspiratie: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].aspiratie }}</li>
-          <li>Capacitate baie ulei: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].cap_ulei }}</li>
-          <li>Cantitate lichid de racire: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].cap_lichid_racire }}</li>
-          <p style="color:#339966">Volum si greutati</p>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.masaProprie === 'A' ? 'red' : comparareRezultate.masaProprie === 'B' ? 'green' : 'grey'}">Masa proprie: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].greutate }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.masaMaxima === 'A' ? 'green' : comparareRezultate.masaMaxima === 'B' ? 'red' : 'grey'}">Masa maxima autorizata: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].masa_maxima }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.volumPortbagaj === 'A' ? 'green' : comparareRezultate.volumPortbagaj === 'B' ? 'red' : 'grey'}">Volumul minim al portbagajului: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].volum_portbagaj }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.volumRezervor === 'A' ? 'green' : comparareRezultate.volumRezervor === 'B' ? 'red' : 'grey'}">Volumul rezervorului: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].volum_rezervor }}</li>
-          <p style="color:#339966">Dimensiuni</p>
-          <li>Lungime: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].lungime }}</li>
-          <li>Latime: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].latime }}</li>
-          <li>Inaltime: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].inaltime }}</li>
-          <p style="color:#339966">Transmisie, franare si suspensie</p>
-          <li>Tractiune: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].tractiune }}</li>
-          <li>Tipul cutiei de viteze: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].tip_cutie_viteze }}</li>
-          <li>Suspensie fata: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].suspensie_fata }}</li>
-          <li>Suspensie spate: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].suspensie_spate }}</li>
-          <li>Frane fata: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].frane_fata }}</li>
-          <li>Frane spate: {{ carData[selectedMarca1][selectedModel1][selectedCaroserie1][selectedMotorizare1].frane_spate }}</li>
-        </ul>
-      </div>
-      <div class="informatii-masina" id="informatii-masina-b">
-        <img :src="carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].imagine" alt="Mașină">
-        <ul>
-          <li>Marca: {{ selectedMarca2 }}</li>
-          <li>Model: {{ selectedModel2 }}</li>
-          <li>Caroserie: {{ selectedCaroserie2 }}</li>
-          <li>Motorizare: {{ selectedMotorizare2 }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.anFabricatie === 'B' ? 'green' : comparareRezultate.anFabricatie === 'A' ? 'red' : 'grey'}">Anii de fabricatie: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].an_fabricatie }}</li>
-          <li>Numar de scaune: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].nrscaune }}</li>
-          <li>Numar de usi: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].nrusi }}</li>
-          <p style="color:#339966">Performanta</p>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.consumUrban === 'B' ? 'red' : comparareRezultate.consumUrban === 'A' ? 'green' : 'grey'}">Consumul urban(l/100km): {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].consum_urban }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.consumAutostrada === 'B' ? 'red' : comparareRezultate.consumAutostrada === 'A' ? 'green' : 'grey'}">Consumul pe autostrada(l/100km): {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].consum_autostrada }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.consumMixt === 'B' ? 'red' : comparareRezultate.consumMixt === 'A' ? 'green' : 'grey'}">Consum mixt(l/100km): {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].consum_mixt }}</li>
-          <li>Tipul carburantului: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].carburant }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.acceleratie === 'B' ? 'red' : comparareRezultate.acceleratie === 'A' ? 'green' : 'grey'}">Acceleratie(0-100km/h)(secunde): {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].acceleratie }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.vitezaMaxima === 'B' ? 'green' : comparareRezultate.vitezaMaxima ==='A' ? 'red' : 'grey' }">Viteza maxima: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].viteza_maxima }}</li>
-          <li>Standardul ecologic: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].euro }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.rapGrPut === 'B' ? 'red' : comparareRezultate.rapGrPut === 'A' ? 'green' : 'grey'}">Raport greutate/putere: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].rap_greutate_putere }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.rapGrCup === 'B' ? 'red' : comparareRezultate.rapGrCup === 'A' ? 'green' : 'grey'}">Raport greutate/cuplu: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].rap_greutate_cuplu }}</li>
-          <p style="color:#339966">Motorul</p>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.Cilindree === 'B' ? 'green' : comparareRezultate.Cilindree === 'A' ? 'red' : 'grey'}">Cilindree: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].cilindree }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.Putere === 'B' ? 'green' : comparareRezultate.Putere === 'A' ? 'red' : 'grey'}">Putere: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].putere }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.Cuplu === 'B' ? 'green' : comparareRezultate.Cuplu === 'A' ? 'red' : 'grey'}">Cuplu: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].cuplu }}</li>
-          <li>Codul Motor: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].cod_motor }}</li>
-          <li>Configuratia motorului: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].configuratie }}</li>
-          <li>Tipul de aspiratie: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].aspiratie }}</li>
-          <li>Capacitate baie ulei: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].cap_ulei }}</li>
-          <li>Cantitate lichid de racire: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].cap_lichid_racire }}</li>
-          <p style="color:#339966">Volum si greutati</p>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.masaProprie === 'B' ? 'red' : comparareRezultate.masaProprie === 'A' ? 'green' : 'grey'}">Masa proprie: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].greutate }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.masaMaxima === 'B' ? 'green' : comparareRezultate.masaMaxima === 'A' ? 'red' : 'grey'}">Masa maxima autorizata: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].masa_maxima }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.volumPortbagaj === 'B' ? 'green' : comparareRezultate.volumPortbagaj === 'A' ? 'red' : 'grey'}">Volumul minim al portbagajului: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].volum_portbagaj }}</li>
-          <li v-bind:style="{ backgroundColor: comparareRezultate.volumRezervor === 'B' ? 'green' : comparareRezultate.volumRezervor === 'A' ? 'red' : 'grey'}">Volumul rezervorului: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].volum_rezervor }}</li>
-          <p style="color:#339966">Dimensiuni</p>
-          <li>Lungime: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].lungime }}</li>
-          <li>Latime: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].latime }}</li>
-          <li>Inaltime: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].inaltime }}</li>
-          <p style="color:#339966">Transmisie, franare si suspensie</p>
-          <li>Tractiune: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].tractiune }}</li>
-          <li>Tipul cutiei de viteze: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].tip_cutie_viteze }}</li>
-          <li>Suspensie fata: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].suspensie_fata }}</li>
-          <li>Suspensie spate: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].suspensie_spate }}</li>
-          <li>Frane fata: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].frane_fata }}</li>
-          <li>Frane spate: {{ carData[selectedMarca2][selectedModel2][selectedCaroserie2][selectedMotorizare2].frane_spate }}</li>
-        </ul>
-      </div>
+
+    <div class="afisare" v-if="showInfo">
+      <table>
+        <tr>
+          <td class="masinaA">
+            <img :src="carData[this.cars.carA.selectedMarca][this.cars.carA.selectedModel][this.cars.carA.selectedCaroserie][this.cars.carA.selectedMotorizare].imagine" alt="Mașină">
+            <p>{{this.cars.carA.selectedMarca}}</p>
+            <p>{{this.cars.carA.selectedModel}}</p>
+            <p>{{this.cars.carA.selectedCaroserie}}</p>
+            <p>{{this.cars.carA.selectedMotorizare}}</p>
+          </td>
+          <td class="numeProprietati">
+            <h1>Comparatie masini</h1>
+          </td>
+          <td class="masinaB">
+            <img :src="carData[this.cars.carB.selectedMarca][this.cars.carB.selectedModel][this.cars.carB.selectedCaroserie][this.cars.carB.selectedMotorizare].imagine" alt="Mașină">
+            <p>{{this.cars.carB.selectedMarca}}</p>
+            <p>{{this.cars.carB.selectedModel}}</p>
+            <p>{{this.cars.carB.selectedCaroserie}}</p>
+            <p>{{this.cars.carB.selectedMotorizare}}</p>
+          </td>
+        </tr>
+        <tr v-for="key in Object.keys(carData[this.cars.carA.selectedMarca][this.cars.carA.selectedModel][this.cars.carA.selectedCaroserie][this.cars.carA.selectedMotorizare]).filter(key => key !== 'imagine')">
+          <td class="masinaA" v-bind:style="{ backgroundColor: keys.includes(key) ? (comparareRezultate[key] ? (comparareRezultate[key].winner === 'carA' ? 'green' : comparareRezultate[key].winner === 'carB' ? 'red' : 'grey') : '') : '' }">
+            <span class="valoareA">{{ carData[this.cars.carA.selectedMarca][this.cars.carA.selectedModel][this.cars.carA.selectedCaroserie][this.cars.carA.selectedMotorizare][key] }}</span>
+          </td>
+          <td class="numeProprietati">
+            <span class="numeProprietate">{{ key }}</span>
+          </td>
+          <td class="masinaB" v-bind:style="{ backgroundColor: keys.includes(key) ? (comparareRezultate[key] ? (comparareRezultate[key].winner === 'carB' ? 'green' : comparareRezultate[key].winner === 'carA' ? 'red' : 'grey') : '') : '' }">
+            <span class="valoareB">{{ carData[this.cars.carB.selectedMarca][this.cars.carB.selectedModel][this.cars.carB.selectedCaroserie][this.cars.carB.selectedMotorizare][key] }}</span>
+          </td>
+        </tr>
+      </table>
     </div>
+
   </div>
 </template>
 
@@ -256,8 +180,8 @@ export default {
 }
 
 .container {
-  margin-left:25%;
-  margin-right: 15%;
+  margin-left:20%;
+  margin-right: 10%;
   max-width: 1300px;
   display: flex;
   flex-direction: column;
@@ -283,14 +207,6 @@ export default {
   Backdrop-filter:blur(7px);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   color: #fff;
-}
-
-li{
-  margin-bottom: 5px;
-  border-radius: 15px;
-  list-style-type: none;
-  width:70%;
-  padding:3px;
 }
 
 select {
@@ -321,56 +237,72 @@ select {
   color: #fff;
   margin-top: 50px;
   display: flex;
-  flex-direction: row;
   animation: fadeIn 1s linear;
+  width: 100%;
+  flex-wrap: wrap;
+  background-color: rgba(0,0,0,.7);
+  Backdrop-filter:blur(7px);
+  border: 2px solid #339966;
+  border-radius: 20px;
 }
+
+h1{
+  margin-top:80px;
+  color: #339966;
+}
+
+.masinaA {
+  width: 35%;
+}
+
+.numeProprietati {
+  width: 30%;
+  margin-top:165px;
+}
+
+.masinaB {
+  width: 35%;
+}
+
+table {
+  width: 100%;
+  padding:20px;
+}
+
+td {
+  vertical-align: top;
+  text-align: center;
+  padding:7px;
+  border-radius:20px;
+}
+
+img{
+  display: block;
+  margin: auto;
+  border-radius: 20px;
+  border: 2px solid #339966;
+  width:70%;
+  height: 150px;
+  object-fit: cover;
+}
+
 
 @keyframes fadeIn {
   0% {opacity:0;}
   50% {opacity: 5;}
 }
 
-.informatii-masina {
-  width: 48%;
-  float: left;
-  margin-right: 2%;
-  border: 2px solid #339966;
-  border-radius: 20px;
-  background-color: rgba(0,0,0,.7);
-  Backdrop-filter:blur(7px);
-}
-
-img{
-  display: block;
-  border-radius: 20px;
-  border: 2px solid #339966;
-  width:50%;
-  margin-top:15px;
-  margin-left:25%;
-}
-
-.informatii-masina img {
-  height: 150px;
-  object-fit: cover;
-}
-
 @media (max-width: 800px) {
+  .container {
+    margin-left: 2%;
+    width:96%;
+  }
+
   .form-container {
     flex-direction: column;
     align-items: center;
     margin-top:50px;
     width:100%;
-  }
-
-  .afisare {
-    flex-direction: column;
-    align-items: center;
-    width:100%;
-  }
-
-  .informatii-masina {
-    width:100%;
-    margin-right:0;
   }
 
   .form {
@@ -388,14 +320,17 @@ img{
     margin-bottom:20px;
   }
 
-  .container {
-    margin-left: 2%;
-    width:96%;
+  .afisare {
+    flex-direction: column;
+    align-items: center;
   }
 
-  li{
-    width:90%
+  .masinaA, .numeProprietati, .masinaB {
+    width: 100%;
+  }
+
+  img {
+    width: 90%;
   }
 }
-
 </style>
