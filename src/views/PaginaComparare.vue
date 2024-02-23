@@ -321,6 +321,7 @@ img{
   }
 
   .afisare {
+    width:90%;
     flex-direction: column;
     align-items: center;
   }
