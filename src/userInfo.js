@@ -14,6 +14,5 @@ export const userData = {
     },
     description:'',
     profilePicture:'',
-    friends: [],
 };
 export const listaUseri = []
