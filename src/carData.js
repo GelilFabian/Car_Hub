@@ -3,7 +3,7 @@ export const bazaDateMasini= {
         "2005 BMW Seria 3(E9X)": {
             "Sedan 4-door(E90)": {
                 "318i 2.0L 129hp": {
-                    imagine: "/assets/BMWE90/bmwE90sedan.jpg",
+                    imagine: "/assets/bmwE90sedan.jpg",
                     'Anii de fabricatie': "2005-2007",
                     'Numarul de scaune':5,
                     'Numarul de usi':4,
