@@ -34,7 +34,7 @@ export const newsData =[
             "- pătrunderea pe drumurile publice modernizate cu un vehicul care are pe roți sau pe caroserie noroi ce se depune pe partea carosabilă, ori din care cad sau se scurg produse, substanțe sau materiale ce pun în pericol siguranța circulației.\n" +
             "\n" +
             "Pentru a evita astfel de pericole pe drumurile publice, polițiștii din Germania au primit drone pentru a vedea TIR-urile care nu au prelata remorcii curățată de gheață. \n",
-        image:'src/assets/News/tir.jpg'
+        image:'/src/assets/News/tir.jpg'
     },
     {
         title: "Noua Dacia Duster va putea fi comandată începând din prima săptămână a lunii martie. De la cât pornesc prețurile",
@@ -58,7 +58,7 @@ export const newsData =[
             "„Începând chiar de azi, 4 ianuarie 2024, cei interesaţi să cumpere noua Dacia Duster pot rezerva online un vehicul în versiunea Extreme, complet echipat, de culoare Sandstone Beige, în oricare variantă de motorizare. Cele 200 de exemplare disponibile vor putea fi achiziţionate doar de persoane fizice, exclusiv online”, anunţă compania.\n" +
             "\n" +
             "Cei interesaţi trebuie să achite o taxă de rezervare de 100 de euro.",
-        image:'src/assets/News/dacia.jpg'
+        image:'/src/assets/News/dacia.jpg'
     },
     {
         title: "Tehnologia care aduce autonomie de 800 de kilometri pentru mașinile electrice și încărcarea în 10 minute",
@@ -73,7 +73,7 @@ export const newsData =[
             "\n" +
             "Sila a semnat până acum contracte cu Mercedes-Benz și, mai nou, cu Panasonic și pentru furnizarea acestei tehnologii.\n"+"\n"+
         "Materialul dezvoltat de Sila va fi optimizat pentru viitoarea generație de baterii Panasonic.",
-        image:'src/assets/News/tesla.jpg'
+        image:'/src/assets/News/tesla.jpg'
     },
     {
         title: "Motivul pentru care mașinile electrice au mai multe probleme tehnice decât cele obișnuite",
@@ -91,7 +91,7 @@ export const newsData =[
             "De regulă, proprietarii de mașini electrice reclamă probleme cu bateriile și încărcarea, dar acestea sunt, în mare, și rezultatul noutății acestor mașini, nu al tehnologiei în sine de propulsie.\n" +
             "\n" +
             "„Dacă toți producătorii ar fi făcut mașini electrice de 100 de ani și apoi unul dintre ei ar fi decis brusc să construiască un motor cu ardere internă cu o transmisie, acesta ar fi plin de probleme\", a exemplificat expertul.",
-        image:'src/assets/News/electrice.jpg'
+        image:'/src/assets/News/electrice.jpg'
     },
     {
         title: "Dacia a lansat a treia generație a modelului Duster, cu o imagine mai dură și noi tehnologii GALERIE FOTO",
@@ -109,7 +109,7 @@ export const newsData =[
         "Iar Duster este o poveste de succes: în cariera sa de 13 ani, a obținut peste 40 de premii, producția este de 2,2 milioane de unități și nu mai mult, iar popularitatea sa în continuă creștere l-a clasat ca cel mai bine vândut SUV din Europa pe toate segmentele din piața de retail în 2022.\n" +
             "\n" +
             "Aproximativ 1.000 de SUV-uri Duster ies de pe liniile de producție de la fabrica Dacia din Pitești, România, în fiecare zi – aproximativ unul în fiecare minut.",
-        image:'src/assets/News/duster.jpg'
+        image:'/src/assets/News/duster.jpg'
     },
     {
         title: "Renault lansează ”Legend”, o maşină electrică la un preţ mai mic de 20.000 de euro",
@@ -129,7 +129,7 @@ export const newsData =[
             "Ampere are 11.000 de angajaţi, dintre care 35% sunt ingineri, care concep, dezvoltă şi produc în Franţa vehicule sub marca Renault.\n" +
             "\n" +
             "Anul trecut, Renault a anunţat că va crea două entităţi separate, una dedicată dezvoltării, producţiei şi vânzării de vehicule electrice, cu sediul în Franţa, şi cealaltă dedicată dezvoltării şi producţiei de motoare şi cutii de viteze termice şi hibride de nouă generaţie E-TECH, care va include operaţiunile din România, Spania, Portugalia, Turcia şi America Latină.",
-        image:'src/assets/News/renault.jpg'
+        image:'/src/assets/News/renault.jpg'
     },
     {
         title: "Tesla vrea să lanseze cea mai ieftină mașină electrică",
@@ -143,7 +143,7 @@ export const newsData =[
             "Sursa care a dorit să-și păstreze anonimatul nu a divulgat data la care modelul va intra în producție, dar alte surse au confirmat în septembrie pentru agenția citată că Tesla se apropie de o inovație care ar putea permite \"asamblarea aproape întregii părți inferioare a automobilelor electrice într-o singură bucată\".\n" +
             "\n" +
             "Această inovație ar putea fi o extensie a procesului de producție denumit \"gigacasting\", lansat de Tesla, în care sunt folosite prese uriașe cu presiune de strângere de 6.000 până la 9.000 de tone pentru a modela structurile din față și din spate ale modelului Y, ceea ce a redus costurile de producție și i-a lăsat în urmă pe constructorii rivali.",
-        image:'src/assets/News/tesla1.jpg'
+        image:'/src/assets/News/tesla1.jpg'
     },
     {
         title: "Ferrari a început să accepte plata în criptomonede a maşinilor în urma solicitărilor clienţilor săi bogaţi",
@@ -169,7 +169,7 @@ export const newsData =[
             "Ferrari a livrat peste 1.800 de maşini în regiunea sa din America, care include SUA, în prima jumătate a acestui an.\n" +
             "\n" +
             "Galliera nu a spus câte maşini se aştepta Ferrari să vândă prin cripto. El a arătat că portofoliul de comenzi al companiei a fost puternic şi complet rezervat până în 2025, dar compania a vrut să testeze acest univers în expansiune.",
-        image:'src/assets/News/ferari.jpg'
+        image:'/src/assets/News/ferari.jpg'
     }
 ]
 
