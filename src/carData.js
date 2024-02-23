@@ -3,7 +3,7 @@ export const bazaDateMasini= {
         "2005 BMW Seria 3(E9X)": {
             "Sedan 4-door(E90)": {
                 "318i 2.0L 129hp": {
-                    imagine: '/src/assets/bmwE90sedan.jpg',
+                    imagine: '../assets/bmwE90sedan.jpg',
                     'Anii de fabricatie': "2005-2007",
                     'Numarul de scaune':5,
                     'Numarul de usi':4,
@@ -45,7 +45,7 @@ export const bazaDateMasini= {
                 },
 
                 "318d 2.0L 122hp": {
-                    imagine: '/src/assets/bmwE90sedan.jpg',
+                    imagine: '../assets/bmwE90sedan.jpg',
                     "Anii de fabricatie": "2006-2007",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
@@ -87,7 +87,7 @@ export const bazaDateMasini= {
                 },
 
                 "320d 2.0L 163hp": {
-                    imagine: '/src/assets/bmwE90sedan.jpg',
+                    imagine: '../assets/bmwE90sedan.jpg',
                     "Anii de fabricatie": "2005-2007",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
@@ -124,7 +124,7 @@ export const bazaDateMasini= {
                 },
 
                 "320i 2.0L 150hp": {
-                    imagine: '/src/assets/bmwE90sedan.jpg',
+                    imagine: '../assets/bmwE90sedan.jpg',
                     "Anii de fabricatie": "2005-2007",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
@@ -162,7 +162,7 @@ export const bazaDateMasini= {
 
 
                 "325d 3.0L 197hp": {
-                    imagine: '/src/assets/bmwE90sedan.jpg',
+                    imagine: '../assets/bmwE90sedan.jpg',
                     "Anii de fabricatie": "2006-2008",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
@@ -199,7 +199,7 @@ export const bazaDateMasini= {
                 },
 
                 "325i 2.5L 218hp": {
-                    imagine: '/src/assets/bmwE90sedan.jpg',
+                    imagine: '../assets/bmwE90sedan.jpg',
                     "Anii de fabricatie": "2005-2007",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
@@ -238,7 +238,7 @@ export const bazaDateMasini= {
 
 
                 "330i 3.0L 258hp": {
-                    imagine: '/src/assets/bmwE90sedan.jpg',
+                    imagine: '../assets/bmwE90sedan.jpg',
                     "Anii de fabricatie": "2005-2007",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
@@ -275,7 +275,7 @@ export const bazaDateMasini= {
                 },
 
                 "330d 3.0L 231hp": {
-                    imagine: '/src/assets/bmwE90sedan.jpg',
+                    imagine: '../assets/bmwE90sedan.jpg',
                     "Anii de fabricatie": "2005-2007",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
@@ -320,7 +320,7 @@ export const bazaDateMasini= {
         "2007 Audi A4(B8)":{
             "Sedan 4-door":{
                 "1.8 TFSI 120hp": {
-                    imagine: '/src/assets/audia4b8sedan.jpg',
+                    imagine: '../assets/audia4b8sedan.jpg',
                     "Anii de fabricatie": "2007-2011",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
@@ -358,7 +358,7 @@ export const bazaDateMasini= {
                 },
 
                 "1.8 TFSI 160hp": {
-                    imagine: '/src/assets/audia4b8sedan.jpg',
+                    imagine: '../assets/audia4b8sedan.jpg',
                     'Anii de fabricatie': "2007-2011",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
@@ -397,7 +397,7 @@ export const bazaDateMasini= {
 
 
                 "2.0 TDI 143hp": {
-                    imagine: '/src/assets/audia4b8sedan.jpg',
+                    imagine: '../assets/audia4b8sedan.jpg',
                     'Anii de fabricatie': "2007-2011",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
@@ -435,7 +435,7 @@ export const bazaDateMasini= {
                 },
 
                 "2.0 TDI 170hp": {
-                    imagine: '/src/assets/audia4b8sedan.jpg',
+                    imagine: '../assets/audia4b8sedan.jpg',
                     'Anii de fabricatie': "2007-2011",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
@@ -473,7 +473,7 @@ export const bazaDateMasini= {
 
 
                 "2.0 TFSI 180hp": {
-                    imagine: '/src/assets/audia4b8sedan.jpg',
+                    imagine: '../assets/audia4b8sedan.jpg',
                     'Anii de fabricatie': "2007-2011",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
@@ -511,7 +511,7 @@ export const bazaDateMasini= {
                 },
 
                 "2.0 TFSI 211hp": {
-                    imagine: '/src/assets/audia4b8sedan.jpg',
+                    imagine: '../assets/audia4b8sedan.jpg',
                     'Anii de fabricatie': "2007-2011",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
@@ -549,7 +549,7 @@ export const bazaDateMasini= {
                 },
 
                 "2.7 TDI V6 190hp": {
-                    imagine: '/src/assets/audia4b8sedan.jpg',
+                    imagine: '../assets/audia4b8sedan.jpg',
                     'Anii de fabricatie': "2007-2011",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
@@ -588,7 +588,7 @@ export const bazaDateMasini= {
 
 
                 "3.0 TDI quattro 240hp": {
-                    imagine: '/src/assets/audia4b8sedan.jpg',
+                    imagine: '../assets/audia4b8sedan.jpg',
                     'Anii de fabricatie': "2007-2011",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
@@ -626,7 +626,7 @@ export const bazaDateMasini= {
                 },
 
                 "3.2 FSI quattro 265hp": {
-                    imagine: '/src/assets/audia4b8sedan.jpg',
+                    imagine: '../assets/audia4b8sedan.jpg',
                     'Anii de fabricatie': "2007-2011",
                     'Numarul de scaune': 5,
                     'Numarul de usi': 4,
