@@ -321,7 +321,7 @@ img{
   }
 
   .afisare {
-    width: 90%;
+    width: 100%;
   }
 
   table {
@@ -330,7 +330,7 @@ img{
   }
 
   h1, p, span{
-    font-size: 0.5em; /* Micsorează fontul dacă este necesar */
+    font-size: 0.7em; /* Micsorează fontul dacă este necesar */
   }
 
 
