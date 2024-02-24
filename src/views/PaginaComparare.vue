@@ -321,17 +321,18 @@ img{
   }
 
   .afisare {
-    width:90%;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .masinaA, .numeProprietati, .masinaB {
-    width: 100%;
-  }
-
-  img {
     width: 90%;
   }
+
+  table {
+    width: 100%;
+    padding:10px;
+  }
+
+  h1, p, span{
+    font-size: 0.5em; /* Micsorează fontul dacă este necesar */
+  }
+
+
 }
 </style>
