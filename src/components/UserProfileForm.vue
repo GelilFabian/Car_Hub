@@ -24,8 +24,8 @@ export default {
     <input type="file" @change="handleImageUpload" class="hidden" ref="fileInput" accept="image/*" />
     <div class="image-section">
       <img v-if="user.profilePicture" :src="user.profilePicture" alt="Profile Picture" class="profile-picture">
-      <img v-else src="/src/assets/user.png" class="default-picture">
-      <button @click="openFileInput" style="margin-left:0" class="button" :style="{ display: editing ? 'block' : 'none' }">Încarcă imagine</button>
+      <img v-else src="/src/assets/user.png" class="default-picture" alt="Default ProfilePicture">
+      <button @click.prevent="openFileInput" style="margin-left:0" class="button" :style="{ display: editing ? 'block' : 'none' }">Încarcă imagine</button>
     </div>
     <h1 style="font-size: 50px">{{ user.username }}</h1>
     <input v-model="user.username" type="text" :style="{ display: editing ? 'block' : 'none' }">
