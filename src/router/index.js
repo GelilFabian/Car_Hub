@@ -34,6 +34,10 @@ const router = createRouter({
       name:'forum',
       component: Forum
     },
+    {
+      path: '/*',
+      component: 404
+    },
   ]
 })
 
