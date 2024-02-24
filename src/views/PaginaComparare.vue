@@ -24,17 +24,17 @@ export default {
       showInfo: false,
       comparareRezultate: {},
       allProperties: {},
-      keys : ['Anii de fabricatie', 'Consumul urban(l/100km)', 'Consumul pe autostrada(l/100km)', 'Consumul mixt(l/100km)', 'Acceleratie(0-100km/h)(secunde)', 'Viteza maxima(km/h)', 'Standard ecologic', 'Raport putere/greutate(CP/tona)', 'Raport cuplu/greutate(Nm/tona)', 'Capacitate cilindrica(cc)', 'Putere(hp)', 'Cuplu(Nm)', 'Masa proprie(kg)', 'Masa maxima autorizata(kg)', 'Volumul minim al portbagajului(l)', 'Volumul rezervorului(l)'],
+      keys : ['Anii de fabricatie', 'Consumul urban (l/100km)', 'Consumul pe autostrada (l/100km)', 'Consumul mixt (l/100km)', 'Acceleratie (0-100km/h) (secunde)', 'Viteza maxima (km/h)', 'Standard ecologic', 'Raport putere/greutate (CP/tona)', 'Raport cuplu/greutate (Nm/tona)', 'Capacitate cilindrica(cc)', 'Putere(hp)', 'Cuplu(Nm)', 'Masa proprie(kg)', 'Masa maxima autorizata(kg)', 'Volumul minim al portbagajului(l)', 'Volumul rezervorului(l)'],
       isHigherBetter: {
         'Anii de fabricatie': true,
-        'Consumul urban(l/100km)': false,
-        'Consumul pe autostrada(l/100km)': false,
-        'Consumul mixt(l/100km)': false,
-        'Acceleratie(0-100km/h)(secunde)': false,
-        'Viteza maxima(km/h)': true,
+        'Consumul urban (l/100km)': false,
+        'Consumul pe autostrada (l/100km)': false,
+        'Consumul mixt (l/100km)': false,
+        'Acceleratie (0-100km/h) (secunde)': false,
+        'Viteza maxima (km/h)': true,
         'Standard ecologic': true,
-        'Raport putere/greutate(CP/tona)': true,
-        'Raport cuplu/greutate(Nm/tona)': true,
+        'Raport putere/greutate (CP/tona)': true,
+        'Raport cuplu/greutate (Nm/tona)': true,
         'Capacitate cilindrica(cc)': true,
         'Putere(hp)': true,
         'Cuplu(Nm)': true,
@@ -137,20 +137,24 @@ export default {
     <button class="button" @click="comparareButon"><b>Start Comparare</b></button>
 
     <div class="afisare" v-if="showInfo">
-      <table>
+      <table class="imagesTable">
         <tr>
-          <td class="masinaA">
-            <img :src="carData[this.cars.carA.selectedMarca][this.cars.carA.selectedModel][this.cars.carA.selectedCaroserie][this.cars.carA.selectedMotorizare].imagine" alt="Mașină">
+          <td><img :src="carData[this.cars.carA.selectedMarca][this.cars.carA.selectedModel][this.cars.carA.selectedCaroserie][this.cars.carA.selectedMotorizare].imagine" alt="Mașină"></td>
+          <td class="empty"></td>
+          <td><img :src="carData[this.cars.carB.selectedMarca][this.cars.carB.selectedModel][this.cars.carB.selectedCaroserie][this.cars.carB.selectedMotorizare].imagine" alt="Mașină"></td>
+        </tr>
+      </table>
+      <table class="dataTable">
+        <tr>
+          <td>
             <p>{{this.cars.carA.selectedMarca}}</p>
             <p>{{this.cars.carA.selectedModel}}</p>
             <p>{{this.cars.carA.selectedCaroserie}}</p>
             <p>{{this.cars.carA.selectedMotorizare}}</p>
           </td>
-          <td class="numeProprietati">
-            <h1>Comparatie masini</h1>
+          <td>
           </td>
-          <td class="masinaB">
-            <img :src="carData[this.cars.carB.selectedMarca][this.cars.carB.selectedModel][this.cars.carB.selectedCaroserie][this.cars.carB.selectedMotorizare].imagine" alt="Mașină">
+          <td>
             <p>{{this.cars.carB.selectedMarca}}</p>
             <p>{{this.cars.carB.selectedModel}}</p>
             <p>{{this.cars.carB.selectedCaroserie}}</p>
@@ -158,14 +162,14 @@ export default {
           </td>
         </tr>
         <tr v-for="key in Object.keys(carData[this.cars.carA.selectedMarca][this.cars.carA.selectedModel][this.cars.carA.selectedCaroserie][this.cars.carA.selectedMotorizare]).filter(key => key !== 'imagine')">
-          <td class="masinaA" v-bind:style="{ backgroundColor: keys.includes(key) ? (comparareRezultate[key] ? (comparareRezultate[key].winner === 'carA' ? 'green' : comparareRezultate[key].winner === 'carB' ? 'red' : 'grey') : '') : '' }">
-            <span class="valoareA">{{ carData[this.cars.carA.selectedMarca][this.cars.carA.selectedModel][this.cars.carA.selectedCaroserie][this.cars.carA.selectedMotorizare][key] }}</span>
+          <td v-bind:style="{ backgroundColor: keys.includes(key) ? (comparareRezultate[key] ? (comparareRezultate[key].winner === 'carA' ? 'green' : comparareRezultate[key].winner === 'carB' ? 'red' : 'grey') : '') : '' }">
+            <span>{{ carData[this.cars.carA.selectedMarca][this.cars.carA.selectedModel][this.cars.carA.selectedCaroserie][this.cars.carA.selectedMotorizare][key] }}</span>
           </td>
-          <td class="numeProprietati">
-            <span class="numeProprietate">{{ key }}</span>
+          <td>
+            <span>{{ key }}</span>
           </td>
-          <td class="masinaB" v-bind:style="{ backgroundColor: keys.includes(key) ? (comparareRezultate[key] ? (comparareRezultate[key].winner === 'carB' ? 'green' : comparareRezultate[key].winner === 'carA' ? 'red' : 'grey') : '') : '' }">
-            <span class="valoareB">{{ carData[this.cars.carB.selectedMarca][this.cars.carB.selectedModel][this.cars.carB.selectedCaroserie][this.cars.carB.selectedMotorizare][key] }}</span>
+          <td v-bind:style="{ backgroundColor: keys.includes(key) ? (comparareRezultate[key] ? (comparareRezultate[key].winner === 'carB' ? 'green' : comparareRezultate[key].winner === 'carA' ? 'red' : 'grey') : '') : '' }">
+            <span>{{ carData[this.cars.carB.selectedMarca][this.cars.carB.selectedModel][this.cars.carB.selectedCaroserie][this.cars.carB.selectedMotorizare][key] }}</span>
           </td>
         </tr>
       </table>
@@ -251,41 +255,34 @@ h1{
   color: #339966;
 }
 
-.masinaA {
-  width: 35%;
-}
-
-.numeProprietati {
-  width: 30%;
-  margin-top:165px;
-}
-
-.masinaB {
-  width: 35%;
-}
-
-table {
-  width: 100%;
-  padding:20px;
-}
-
-td {
-  vertical-align: top;
-  text-align: center;
-  padding:7px;
-  border-radius:20px;
-}
-
 img{
   display: block;
   margin: auto;
   border-radius: 20px;
   border: 2px solid #339966;
-  width:70%;
-  height: 150px;
-  object-fit: cover;
+  width:100%;
+  height: 100%;
 }
 
+.imagesTable, .dataTable{
+  width:100%;
+  padding:20px 20px 0 20px;
+}
+
+.imagesTable .empty {
+  width:20%;
+}
+
+.imagesTable td{
+  width:40%;
+}
+
+.dataTable td {
+  width:33.33%;
+  border-radius: 15px;
+  height:35px;
+  text-align: center;
+}
 
 @keyframes fadeIn {
   0% {opacity:0;}
@@ -322,17 +319,21 @@ img{
 
   .afisare {
     width: 100%;
-  }
-
-  table {
-    width: 100%;
-    padding:10px;
+    margin-bottom: 10px;
   }
 
   h1, p, span{
-    font-size: 0.7em; /* Micsorează fontul dacă este necesar */
+    font-size: 0.9em;
   }
 
+  .imagesTable, .dataTable{
+    padding:3px;
+  }
 
+  img{
+    margin-top:20px;
+    width:180px;
+    height:90px;
+  }
 }
 </style>
