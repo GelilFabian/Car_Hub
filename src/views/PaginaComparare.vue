@@ -179,10 +179,6 @@ export default {
 </template>
 
 <style scoped>
-*{
-  box-sizing: border-box;
-}
-
 .container {
   margin-left:20%;
   margin-right: 10%;

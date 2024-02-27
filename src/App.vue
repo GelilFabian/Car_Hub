@@ -17,7 +17,7 @@ export default {
 
 <style>
 * {
-  font-family: "Lucida Console", "Courier New", monospace;
+  font-family: Copperplate,Sans-serif,  monospace;
 }
 .router-view-container {
   position: relative;

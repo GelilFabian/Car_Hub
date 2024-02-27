@@ -147,10 +147,7 @@ export default {
   overflow: hidden;
   box-shadow: 0 15px 30px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2);
 }
-h1 {
-  margin-top: 150px;
-  margin-right: 40%;
-}
+
 .container .overlay-container {
   position: absolute;
   top: 0;
@@ -205,7 +202,9 @@ h2 {
   margin: 0;
 }
 h1 {
-  margin-left: 15%;
+  margin-left: 20%;
+  margin-top: 150px;
+  margin-right: 30%;
 }
 p {
   margin: 20px 0 30px;
@@ -431,6 +430,7 @@ form input:focus {
   h1{
     margin-right:0;
     margin-left:0;
+    margin-top: 100px;
     text-align: center;
   }
   .switch-form {
