@@ -73,6 +73,9 @@ export default {
 </template>
 
 <style scoped>
+* {
+  box-sizing: border-box;
+}
 .main {
   font-size: 28px;
   width: 80%;

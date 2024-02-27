@@ -18,7 +18,6 @@ export default {
 <style>
 * {
   font-family: Copperplate,Sans-serif,  monospace;
-  box-sizing: border-box;
 }
 .router-view-container {
   position: relative;

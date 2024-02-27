@@ -181,6 +181,9 @@ export default {
 
 </template>
 <style scoped>
+* {
+  box-sizing: border-box;
+}
 .main {
   font-size: 28px;
   margin-left: 20%;
@@ -188,6 +191,7 @@ export default {
   padding: 0 10px;
   display: flex;
   flex-direction: column;
+  margin-bottom:15px;
 }
 
 .column {

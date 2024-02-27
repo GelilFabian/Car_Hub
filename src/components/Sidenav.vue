@@ -55,9 +55,9 @@ export default {
     <button class="toggle-button" @click="toggleSidenav()"><font-awesome-icon icon="bars" /></button>
     <aside class="sidenav" :style="{ backgroundColor: getPageClass() }" v-if="showSidenav">
       <button class="close-button" @click="toggleSidenav()">x</button>
-      <img src="../assets/logo2.jpg" alt="CarHub" width="100" height="100" style="margin-left:15%">
+      <img src="../assets/logo2.jpg" alt="CarHub">
       <p>Welcome, {{username}}!</p>
-      <hr style="border: 1px solid black">
+      <hr>
       <div class="container">
         <router-link to="/newsPage" @click.native="closeSidenav"><font-awesome-icon icon="newspaper" /> News Page</router-link>
         <router-link :to="{ name: 'profilUtilizator', params: { username: username } }" @click.native="closeSidenav"><font-awesome-icon icon="user" /> Profil Utilizator</router-link>
@@ -71,6 +71,9 @@ export default {
   </nav>
 </template>
 <style scoped>
+* {
+  box-sizing: border-box;
+}
 .sidenav {
   height: 100%;
   width:250px;
@@ -87,13 +90,12 @@ export default {
 }
 .container {
   height: 500px;
-  margin-top:35px;
+  margin-top:30px;
 }
-
 .logout-container {
   bottom:0;
   position: absolute;
-  margin-bottom:60px;
+  margin-bottom:40px;
 }
 .sidenav a {
   padding: 6px 8px 6px 16px;
@@ -101,7 +103,7 @@ export default {
   font-size: 19px;
   color: white;
   display: block;
-  height: 20%;
+  height: 27%;
   transition: .5s;
 }
 .sidenav p {
@@ -109,13 +111,21 @@ export default {
   color: white;
   font-size: 19px;
 }
+img {
+  margin-left:15%;
+  width:100px;
+  height:100px;
+}
+hr {
+  border: 1px solid black
+}
 .container a:hover {
   color: black;
 }
 .logout-container a:hover {
   color: black;
 }
-.toggle-button, .close-button {
+.toggle-button {
   font-size: 24px;
   background-color: rgba(0,0,0,0);
   color:white;
@@ -126,6 +136,19 @@ export default {
   text-decoration: none;
   display: none;
 }
+
+.close-button {
+  font-size: 25px;
+  background-color: rgba(0,0,0,0);
+  color:white;
+  border: none;
+  cursor: pointer;
+  margin-left:10px;
+  text-align: center;
+  text-decoration: none;
+  display: none;
+}
+
 .toggle-button:hover, .close-button:hover {
   background-color: rgba(0,0,0,.8);}
 @keyframes slideIn {
@@ -145,11 +168,18 @@ export default {
     top: 0;
     z-index:10;
   }
+  .container {
+    height: 400px;
+  }
   .logout-container{
     margin-bottom: 40px;
   }
   .sidenav a {
-    height: 18%;
+    height: 27%;
+  }
+  img {
+    width:80px;
+    height:80px;
   }
 }
 </style>

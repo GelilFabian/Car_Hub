@@ -165,7 +165,7 @@ export default {
           <td v-bind:style="{ backgroundColor: keys.includes(key) ? (comparareRezultate[key] ? (comparareRezultate[key].winner === 'carA' ? 'green' : comparareRezultate[key].winner === 'carB' ? 'red' : 'grey') : '') : '' }">
             <span>{{ carData[this.cars.carA.selectedMarca][this.cars.carA.selectedModel][this.cars.carA.selectedCaroserie][this.cars.carA.selectedMotorizare][key] }}</span>
           </td>
-          <td>
+          <td style="border-bottom:1px solid white">
             <span>{{ key }}</span>
           </td>
           <td v-bind:style="{ backgroundColor: keys.includes(key) ? (comparareRezultate[key] ? (comparareRezultate[key].winner === 'carB' ? 'green' : comparareRezultate[key].winner === 'carA' ? 'red' : 'grey') : '') : '' }">
@@ -179,6 +179,9 @@ export default {
 </template>
 
 <style scoped>
+* {
+  box-sizing: border-box;
+}
 .container {
   margin-left:20%;
   margin-right: 10%;
@@ -328,8 +331,8 @@ img{
 
   img{
     margin-top:20px;
-    width:180px;
-    height:90px;
+    width:160px;
+    height:85px;
   }
 }
 </style>

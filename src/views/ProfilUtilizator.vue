@@ -68,6 +68,9 @@ export default{
   </div>
 </template>
 <style scoped>
+* {
+  box-sizing: border-box;
+}
 .main {
   margin-left: 30%;
   width: 50%;
