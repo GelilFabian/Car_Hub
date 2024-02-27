@@ -146,7 +146,10 @@ export default {
     z-index:10;
   }
   .logout-container{
-    margin-bottom: 70px;
+    margin-bottom: 40px;
+  }
+  .sidenav a {
+    height: 18%;
   }
 }
 </style>

@@ -136,17 +136,18 @@ button:hover{
 
 @media (max-width:800px){
   .filter-bar{
-    margin-top:10px;
+    margin-top:0;
     margin-left:0;
     width:98%;
   }
   button {
-    width:195px;
-    margin-bottom:5px;
+    width:160px;
+    margin-bottom:10px;
   }
   .main{
     margin-left:2%;
     width:96%;
+    margin-top:20px;
   }
   .card{
     margin-left:0;
