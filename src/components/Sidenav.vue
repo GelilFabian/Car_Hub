@@ -65,7 +65,7 @@ export default {
         <router-link to="/forum" @click.native="closeSidenav"><font-awesome-icon icon="comments" /> Forum</router-link>
       </div>
       <div class="logout-container">
-      <router-link to="/" @click.native="logout"><font-awesome-icon icon="sign-out" /> Log Out</router-link>
+      <router-link to="/loginPage" @click.native="logout"><font-awesome-icon icon="sign-out" /> Log Out</router-link>
       </div>
     </aside>
   </nav>

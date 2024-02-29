@@ -4,12 +4,18 @@ import NewsPage from "/src/views/NewsPage.vue";
 import PaginaComparare from "/src/views/PaginaComparare.vue";
 import ProfilUtilizator from "/src/views/ProfilUtilizator.vue";
 import Forum from "/src/views/Forum.vue";
+import PaginaPrezentare from "/src/views/PaginaPrezentare.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
+      name: 'paginaPrezentare',
+      component: PaginaPrezentare
+    },
+    {
+      path: '/loginPage',
       name: 'loginPage',
       component: LoginPage
     },

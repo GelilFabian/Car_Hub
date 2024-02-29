@@ -8,7 +8,7 @@ export default {
 
 <template>
 
-  <Sidenav v-if="$route.path !== '/'" />
+  <Sidenav v-if="$route.path !== '/loginPage' && $route.path !=='/'" />
   <Background />
   <div class="router-view-container">
     <RouterView />

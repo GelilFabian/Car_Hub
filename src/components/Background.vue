@@ -5,7 +5,7 @@ export default {
     getPageClass() {
       const path = this.$route.path;
       const pageClasses = {
-        '/': 'page5Image',
+        '/loginPage': 'page5Image',
         '/newsPage': 'page1Image',
         '/paginaComparare': 'page3Image',
         '/forum': 'page4Image'
