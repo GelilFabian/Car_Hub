@@ -1,20 +1,16 @@
 <template>
-  <div class="topnav">
-    <router-link to="/loginPage" style="float: right">Log In / Sign Up</router-link>
-  </div>
-
   <div class="header">
     <h1>CarHub</h1>
   </div>
 
   <div class="row">
-      <div class="card" >
-        <div class="writecolumn" style="text-align: left">
+      <div class="card-target" >
+        <div class="writecolumn-target" style="text-align: left;border:2px solid #f13535">
           <h1>Descrierea Aplicatiei</h1>
           <h2>De ce sa o folosesti?</h2>
-          <p>Aplicatia CarHub este o platforma noua, cu un aspect modern, atat pentru computer, cat si pentru mobil, care rezolva problema cautarii informatiilor din domeniul auto.</p>
+          <p>Aplicatia CarHub este o platforma noua, cu un aspect modern, atat pentru computer, cat si pentru mobil, care rezolva problema cautarii informatiilor din domeniul auto, intr-un mod mult mai rapid.</p>
           <p>Ai acces la toate tipurile de informatii din acest domeniu, de la stiri la comparari de masini si pana la informatii oferite de alti utilizatori.</p>
-          <p>Aplicatia este foarte usoara de folosit, oricand si oriunde.</p>
+          <p>Aplicatia este foarte usoara de folosit,de oriunde si oricand.</p>
           <p>Compartimentarea aplicatiei:</p>
           <ul>
             <li>Pagina de autentificare / creare cont</li>
@@ -24,15 +20,15 @@
             <li>Pagina de discutii (forum)</li>
           </ul>
         </div>
-        <div class="imagecolumn" style="padding: 5px;">
-          <img src="../assets/loginPageComputer-front.png" alt="loginPageComputer" style="width:100%">
+        <div class="imagecolumn-target" style="padding: 5px;">
+          <img src="../assets/loginPageComputer-front.png" alt="loginPageComputer" style="max-width:700px">
         </div>
       </div>
 
       <h1 style="background-color: #f13535;color:white;text-align: center;padding:50px;">Detalierea paginilor</h1>
 
       <div class="card">
-        <div class="writecolumn">
+        <div class="writecolumn" style="border:2px solid red;">
           <h1 style="color: red">Login Page</h1>
           <p>Aceasta este pagina pentru autentificare sau de creare a unui cont daca acesta nu exista inca.</p>
           <p>Daca contul exista deja, doar se vor introduce datele de autentificare in formularul <span style="color: red">Autentificare</span></p>
@@ -48,7 +44,7 @@
         <div class="imagecolumn">
           <img src="../assets/newsPage.png" alt="newsPage">
         </div>
-        <div class="writecolumn ">
+        <div class="writecolumn" style="border:2px solid #80002a;">
           <h1 style="color:#80002a">Pagina de stiri</h1>
           <p>Aceasta este pagina de unde iti poti lua doza de stiri auto actuale.</p>
           <p>In prima faza, stirea afiseaza inceputul subiectului, dar apasand butonul <span style="color:#80002a">Afiseaza mai mult</span>, va aparea tot subiectul stirii pe care il doresti a il citi </p>
@@ -57,8 +53,8 @@
       </div>
 
       <div class="card">
-        <div class="writecolumn">
-          <h1 style="color:#00004d">Pagina de profil a utilizatorului</h1>
+        <div class="writecolumn" style="border:2px solid #00004d">
+          <h1 style="color:#00004d">Pagina de profil</h1>
           <p>Aceasta pagina este dedicata utilizatorului si a preferintelor sale.</p>
           <p>Utilizatorul poate sa isi schimbe numele din cadrul aplicatiei, poza de profil, detaliile masinii pe care o conduce si poate adauga o mica descriere despre el.</p>
           <p>La o derulare in jos a paginii, se va regasi butonul de editare profil care va permite editarea sau adaugarea de informatii in cadrul contului dumneavoastra.</p>
@@ -72,7 +68,7 @@
       <div class="imagecolumn">
         <img src="../assets/comparePage.png" alt="comparePage">
       </div>
-      <div class="writecolumn">
+      <div class="writecolumn" style="border:2px solid #339966">
         <h1 style="color: #339966">Pagina de comparare masini</h1>
         <p>Aceasta este pagina unde se pot compara 2 autovehicule pentru a vizualiza diferente intre ele si pentru a te ajuta in decizia de achizitie sau doar pentru a afla informatii.</p>
         <p>In prima faza se vor selecta datele autovehiculului pe care doriti sa le comparati cu ajutorul listelor derulante, selectand optiunea dorita.</p>
@@ -82,7 +78,7 @@
     </div>
 
     <div class="card">
-      <div class="writecolumn">
+      <div class="writecolumn" style="border:2px solid #FFA500FF">
         <h1 style="color: #FFA500FF">Forumul</h1>
         <p>In cadrul acestei pagini, se pot desfasura discutii intre utilizatori, cu specificatia ca discutiile trebuie sa fie din domeniul auto.</p>
         <p>Pentru a introduce un subiect de discutie, se va apasa btonul plus din dreapta jos. Se va deschide un modal cu un input pentru a introduce titlul si subiectul discutiei</p>
@@ -93,16 +89,17 @@
         <img src="../assets/forumPage.png" alt="forumPage">
       </div>
     </div>
-  </div>
 
-  <div class="card">
-    <h1>Concluzii</h1>
-    <p>Daca prezentarea aplicatiei vi s-a parut atragatoare, puteti incerca varianta demo a aplicatiei accesand link-ul de mai jos</p>
-    <router-link to="/loginPage" style="float: right">Log In / Sign Up</router-link>
+    <div class="end-card">
+      <h1>Concluzii</h1>
+      <p>Daca prezentarea aplicatiei vi s-a parut atragatoare, puteti incerca varianta demo a aplicatiei accesand link-ul de mai jos</p>
+      <router-link to="/loginPage" style="float: right">Log In / Sign Up</router-link>
+    </div>
   </div>
 
   <div class="footer">
-    <h2>Footer</h2>
+    <p>© Copyright Gelil Fabian</p>
+    <p>All rights reserved</p>
   </div>
 
 </template>
@@ -120,25 +117,23 @@ export default {
 * {
   box-sizing: border-box;
 }
+
 body {
-  padding: 10px;
   background: #f1f1f1;
 }
 
 .header {
-  padding: 30px;
-  text-align: center;
   background-color: #f13535;
   color:white;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  height: 500px;
+  height: 600px;
 }
 
 h1 {
   font-size: 60px;
+  margin:0;
 }
 
 h2 {
@@ -150,7 +145,8 @@ p,li{
 }
 
 img {
-  width:400px;
+  width:100%;
+  max-width:400px;
 }
 
 a {
@@ -165,15 +161,20 @@ a:hover {
   background-color: #5b0808;
 }
 
-.topnav {
-  overflow: hidden;
-  background-color:  #f13535;
+.card {
+  padding: 50px;
+  display:flex;
+  width:100%;
 }
 
-.card {
-  background-color: white;
+.card-target{
+  padding:50px;
+  display:flex;
+  width:100%;
+}
+
+.end-card {
   padding: 50px;
-  margin-top: 20px;
   display:inline-block;
   width:100%;
 }
@@ -182,7 +183,12 @@ a:hover {
   width:55%;
   background-color: #e1e1e1;
   border-radius: 30px;
-  padding:10px;
+}
+
+.writecolumn-target {
+  background-color: #e1e1e1;
+  border-radius: 30px;
+  padding:20px;
 }
 
 .imagecolumn{
@@ -207,8 +213,52 @@ a:hover {
 .footer {
   padding: 20px;
   text-align: center;
-  background: #ddd;
+  background: black;
+  color:white;
   margin-top: 20px;
+}
+
+@media (min-width: 800px) {
+  .writecolumn-target, .imagecolumn-target {
+    display:inline-block;
+  }
+  .writecolumn-target {
+    width:55%;
+  }
+
+  .imagecolumn-target{
+    width:45%;
+  }
+}
+
+@media (max-width: 800px) {
+  .card {
+    padding:10px;
+    margin-top:20px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size:30px;
+  }
+
+  p,li{
+    font-size:15px;
+  }
+
+  .writecolumn {
+    padding: 10px;
+  }
+
+  .card-target{
+    margin-top:40px;
+    display:inline-block;
+    padding:10px;
+  }
+
 }
 
 </style>
