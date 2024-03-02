@@ -276,7 +276,7 @@ a:hover {
   }
 
   .header {
-    height:950px;
+    height:800px;
   }
 
 }
