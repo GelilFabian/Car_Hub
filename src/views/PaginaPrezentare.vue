@@ -1,11 +1,11 @@
 <template>
   <div class="header">
-    <h1>CarHub</h1>
+    <img src="../assets/logo2.jpg" alt="CarHub">
   </div>
 
   <div class="row">
       <div class="card-target" >
-        <div class="writecolumn-target" style="text-align: left;border:2px solid #f13535">
+        <div class="writecolumn-target" style="text-align: left">
           <h1>Descrierea Aplicatiei</h1>
           <h2>De ce sa o folosesti?</h2>
           <p>Aplicatia CarHub este o platforma noua, cu un aspect modern, atat pentru computer, cat si pentru mobil, care rezolva problema cautarii informatiilor din domeniul auto, intr-un mod mult mai rapid.</p>
@@ -25,7 +25,7 @@
         </div>
       </div>
 
-      <h1 style="background-color: #f13535;color:white;text-align: center;padding:50px;">Detalierea paginilor</h1>
+      <h1 style="background-color: #e8d36a;color:white;text-align: center;padding:50px;">Detalierea paginilor</h1>
 
       <div class="card">
         <div class="writecolumn" style="border:2px solid red;">
@@ -123,7 +123,7 @@ body {
 }
 
 .header {
-  background-color: #f13535;
+  background-color: #e8d36a;
   color:white;
   display: flex;
   justify-content: center;
@@ -150,7 +150,7 @@ img {
 }
 
 a {
-  background-color:  #f13535;
+  background-color: #e8d36a;
   padding: 10px;
   border-radius: 15px;
   text-decoration: none;
@@ -158,7 +158,7 @@ a {
 }
 
 a:hover {
-  background-color: #5b0808;
+  background-color: #776519;
 }
 
 .card {
@@ -183,13 +183,21 @@ a:hover {
   width:55%;
   background-color: #e1e1e1;
   border-radius: 30px;
+  padding:20px;
+  border:2px solid #f13535
 }
 
 .writecolumn-target {
   background-color: #e1e1e1;
   border-radius: 30px;
-  padding:20px;
+  padding:70px;
+  border:2px solid black;
 }
+
+.writecolumn-target h2 {
+  color:#e8d36a;
+}
+
 
 .imagecolumn{
   width:45%;
@@ -253,10 +261,22 @@ a:hover {
     padding: 10px;
   }
 
+  .writecolumn h1{
+    padding:15px;
+  }
+
+  .writecolumn-target {
+    padding: 40px;
+  }
+
   .card-target{
     margin-top:40px;
     display:inline-block;
     padding:10px;
+  }
+
+  .header {
+    height:950px;
   }
 
 }
