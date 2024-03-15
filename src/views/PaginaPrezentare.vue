@@ -184,9 +184,10 @@ export default {
 </script>
 <style scoped>
 * {
-  font-family: "Poppins", sans-serif;
   font-weight: 800;
   margin-top:0;
+  overflow-x:hidden;
+  overflow-y: hidden;
 }
 
 h1,h2,p {
@@ -447,6 +448,38 @@ a {
   padding:30px;
   color:white;
   clear:both;
+}
+
+@media (max-width:800px){
+  .hero-text h1{
+    font-size:70px;
+  }
+  .descriere {
+    display:block;
+  }
+  .descriere-text {
+    width:90%;
+    padding:0;
+    margin:0 auto;
+  }
+  .descriere-poza {
+    width:100%;
+  }
+  .caracteristici .row1, .caracteristici .row2 {
+    display:block;
+  }
+  .caracteristici .column{
+    float:none;
+    width:90%;
+    margin:0 auto;
+  }
+  .detaliere-pagini{
+    display:block;
+  }
+  .detaliere-pagini .detaliere-pagini-text, .detaliere-pagini .detaliere-pagini-imagine-dreapta, .detaliere-pagini .detaliere-pagini-imagine-stanga{
+    width:90%;
+    margin:0 auto;
+  }
 }
 
 </style>

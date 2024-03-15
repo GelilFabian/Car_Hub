@@ -17,7 +17,7 @@ export default {
 
 <style>
 * {
-  font-family: Copperplate,Sans-serif,  monospace;
+  font-family: "Poppins", sans-serif;
 }
 .router-view-container {
   position: relative;
