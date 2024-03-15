@@ -217,7 +217,7 @@ li{
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url("../assets/hero-img.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 5% center;
+  background-position: center;
 }
 
 .hero-text {
@@ -453,6 +453,9 @@ a {
 @media (max-width:800px){
   .hero-text h1{
     font-size:70px;
+  }
+  .hero-image{
+    background-position: 5% center;
   }
   .descriere {
     display:block;
