@@ -217,7 +217,7 @@ li{
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url("../assets/hero-img.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: 5% center;
 }
 
 .hero-text {
