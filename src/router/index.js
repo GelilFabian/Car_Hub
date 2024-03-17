@@ -6,6 +6,7 @@ import ProfilUtilizator from "/src/views/ProfilUtilizator.vue";
 import Forum from "/src/views/Forum.vue";
 import PaginaPrezentare from "/src/views/PaginaPrezentare.vue";
 
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -44,7 +45,7 @@ const router = createRouter({
       path: '/*',
       component: 404
     },
-  ]
+  ],
 })
 
 export default router

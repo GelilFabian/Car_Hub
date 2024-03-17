@@ -4,11 +4,13 @@
     <div class="hero-text">
       <h1>CARHUB</h1>
       <p>Your car related app!</p>
-      <button><router-link to="/loginPage">Try Demo</router-link></button>
+      <button><router-link to="/loginPage">Try Demo</router-link></button><br>
+      <a id="scroll-btn" href="#section1"></a><br><br><br><br><br>
+      <p>Scroll Down</p>
     </div>
   </div>
 </div>
-  <div class="body">
+  <div class="body" id="section1">
     <div class="descriere">
       <div class="descriere-text">
         <hr>
@@ -226,7 +228,7 @@ li{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width:700px;
+  height:auto;
 }
 
 .hero-text h1{
@@ -448,6 +450,41 @@ a {
   padding:30px;
   color:white;
   clear:both;
+}
+
+a#scroll-btn {
+  position:absolute;
+  height: 90px;
+  width: 60px;
+  border:4px solid red;
+  margin:auto;
+  left:0;
+  right:0;
+  border-radius: 45px;
+}
+
+a#scroll-btn:before {
+  position:absolute;
+  content:"";
+  margin:auto;
+  left:0;
+  right:0;
+  height:0.6em;
+  width:0.6em;
+  top:0.6em;
+  background-color: red;
+  border-radius: 50%;
+  animation:move-down 2s infinite;
+}
+
+@keyframes move-down {
+  80%{
+    opacity: 0.5;
+  }
+  100% {
+    transform:translateY(2.65em);
+    opacity:0;
+  }
 }
 
 @media (max-width:800px){
