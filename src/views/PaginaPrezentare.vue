@@ -95,66 +95,133 @@
       <h1>DETALIERE PAGINI</h1>
       <hr>
     </div>
-    <div class="detaliere-pagini">
-      <div class="detaliere-pagini-imagine-stanga">
-        <img src="../assets/loginPage.png" alt="loginPage">
+    <div class="detalii1">
+      <div class="detaliere-pagini">
+        <div class="detaliere-pagini-imagine-stanga">
+          <img src="../assets/loginPage.png" alt="loginPage">
+        </div>
+        <div class="detaliere-pagini-text" id="right">
+          <h1 class="coloredParagraph">Login Page</h1>
+          <p>Aceasta este pagina pentru autentificare sau de creare a unui cont daca acesta nu exista inca.</p>
+          <p>Daca contul exista deja, doar se vor introduce datele de autentificare in formularul <span class="coloredParagraph">Autentificare</span></p>
+          <p>Daca contul nu exista inca, utilizatorul va apasa pe butonul <span class="coloredParagraph">Nu ai cont? Inregistrare</span>. Dupa apasarea butonului, se va schimba formularul din cel de Autentificare in cel de Inregistrare</p>
+          <p>In formularul de inregistrare exista campurile in care se vor completa email-ul, parola si confirmarea parolei</p>
+        </div>
       </div>
-      <div class="detaliere-pagini-text" id="right">
-        <h1 class="coloredParagraph">Login Page</h1>
-        <p>Aceasta este pagina pentru autentificare sau de creare a unui cont daca acesta nu exista inca.</p>
-        <p>Daca contul exista deja, doar se vor introduce datele de autentificare in formularul <span class="coloredParagraph">Autentificare</span></p>
-        <p>Daca contul nu exista inca, utilizatorul va apasa pe butonul <span class="coloredParagraph">Nu ai cont? Inregistrare</span>. Dupa apasarea butonului, se va schimba formularul din cel de Autentificare in cel de Inregistrare</p>
-        <p>In formularul de inregistrare exista campurile in care se vor completa email-ul, parola si confirmarea parolei</p>
+
+      <div class="detaliere-pagini">
+        <div class="detaliere-pagini-text">
+          <h1 class="coloredParagraph">Pagina de stiri</h1>
+          <p>Aceasta este pagina de unde iti poti lua doza de stiri auto actuale.</p>
+          <p>In prima faza, stirea afiseaza inceputul subiectului, dar apasand butonul <span class="coloredParagraph">Afiseaza mai mult</span>, va aparea tot subiectul stirii pe care il doresti a il citi </p>
+          <p>Sus pe pagina exista un <span class="coloredParagraph">Sort Bar</span> pentru a putea vizualiza stirile sortate in functie de daata publicarii sau in ordine alfabetica(crescatoare sau descrescatoare)</p>
+        </div>
+        <div class="detaliere-pagini-imagine-dreapta">
+          <img src="../assets/newsPage.png" alt="newsPage">
+        </div>
+      </div>
+
+      <div class="detaliere-pagini">
+        <div class="detaliere-pagini-imagine-stanga">
+          <img src="../assets/userProfile.png" alt="userProfile">
+        </div>
+        <div class="detaliere-pagini-text" id="right">
+          <h1 class="coloredParagraph">Pagina de profil</h1>
+          <p>Aceasta pagina este dedicata utilizatorului si a preferintelor sale.</p>
+          <p>Utilizatorul poate sa isi schimbe numele din cadrul aplicatiei, poza de profil, detaliile masinii pe care o conduce si poate adauga o mica descriere despre el.</p>
+          <p>La o derulare in jos a paginii, se va regasi butonul de editare profil care va permite editarea sau adaugarea de informatii in cadrul contului dumneavoastra.</p>
+        </div>
+      </div>
+
+      <div class="detaliere-pagini">
+        <div class="detaliere-pagini-text">
+          <h1 class="coloredParagraph">Pagina de comparare masini</h1>
+          <p>Aceasta este pagina unde se pot compara 2 autovehicule pentru a vizualiza diferente intre ele si pentru a te ajuta in decizia de achizitie sau doar pentru a afla informatii.</p>
+          <p>In prima faza se vor selecta datele autovehiculului pe care doriti sa le comparati cu ajutorul listelor derulante, selectand optiunea dorita.</p>
+          <p>Dupa selectare, sub aceste forulare exista butonul <span class="coloredParagraph">Start comparare</span>. Dupa apasarea acestui buton, se vor afisa datele autovehiculelor selectate.</p>
+          <p>Acea comparare cuprinde tot, de la dimensiunile fizice ale autovehiculului pana la detalii legate de performanta.</p>
+        </div>
+        <div class="detaliere-pagini-imagine-dreapta">
+          <img src="../assets/comparePage.png" alt="comparePage">
+        </div>
+      </div>
+
+      <div class="detaliere-pagini">
+        <div class="detaliere-pagini-imagine-stanga">
+          <img src="../assets/forumPage.png" alt="forumPage">
+        </div>
+        <div class="detaliere-pagini-text" id="right">
+          <h1 class="coloredParagraph">Forumul</h1>
+          <p>In cadrul acestei pagini, se pot desfasura discutii intre utilizatori, cu specificatia ca discutiile trebuie sa fie din domeniul auto.</p>
+          <p>Pentru a introduce un subiect de discutie, se va apasa btonul plus din dreapta jos. Se va deschide un modal cu un input pentru a introduce titlul si subiectul discutiei</p>
+          <p>Dupa ce subiectul este postat, se poate deschide orice card de discutie doar apasand chenarul respectiv. Se va deschide un modal cu toate detaliile afisate inainte de deschidere plus un camp de introducere de caractere pentru a comenta la postarea respectiva, alaturi de un buton pentru postarea comentariului.</p>
+          <p>De asemenea, exista posibilitatea de cautare a unui anumit subiect de discutie.</p>
+        </div>
       </div>
     </div>
 
-    <div class="detaliere-pagini">
-      <div class="detaliere-pagini-text">
-        <h1 class="coloredParagraph">Pagina de stiri</h1>
-        <p>Aceasta este pagina de unde iti poti lua doza de stiri auto actuale.</p>
-        <p>In prima faza, stirea afiseaza inceputul subiectului, dar apasand butonul <span class="coloredParagraph">Afiseaza mai mult</span>, va aparea tot subiectul stirii pe care il doresti a il citi </p>
-        <p>Sus pe pagina exista un <span class="coloredParagraph">Sort Bar</span> pentru a putea vizualiza stirile sortate in functie de daata publicarii sau in ordine alfabetica(crescatoare sau descrescatoare)</p>
+    <div class="detalii2">
+      <div class="detaliere-pagini">
+        <div class="detaliere-pagini-text" id="right">
+          <h1 class="coloredParagraph">Login Page</h1>
+          <p>Aceasta este pagina pentru autentificare sau de creare a unui cont daca acesta nu exista inca.</p>
+          <p>Daca contul exista deja, doar se vor introduce datele de autentificare in formularul <span class="coloredParagraph">Autentificare</span></p>
+          <p>Daca contul nu exista inca, utilizatorul va apasa pe butonul <span class="coloredParagraph">Nu ai cont? Inregistrare</span>. Dupa apasarea butonului, se va schimba formularul din cel de Autentificare in cel de Inregistrare</p>
+          <p>In formularul de inregistrare exista campurile in care se vor completa email-ul, parola si confirmarea parolei</p>
+        </div>
+        <div class="detaliere-pagini-imagine-stanga">
+          <img src="../assets/loginPage.png" alt="loginPage">
+        </div>
       </div>
-      <div class="detaliere-pagini-imagine-dreapta">
-        <img src="../assets/newsPage.png" alt="newsPage">
-      </div>
-    </div>
 
-    <div class="detaliere-pagini">
-      <div class="detaliere-pagini-imagine-stanga">
-        <img src="../assets/userProfile.png" alt="userProfile">
+      <div class="detaliere-pagini">
+        <div class="detaliere-pagini-text">
+          <h1 class="coloredParagraph">Pagina de stiri</h1>
+          <p>Aceasta este pagina de unde iti poti lua doza de stiri auto actuale.</p>
+          <p>In prima faza, stirea afiseaza inceputul subiectului, dar apasand butonul <span class="coloredParagraph">Afiseaza mai mult</span>, va aparea tot subiectul stirii pe care il doresti a il citi </p>
+          <p>Sus pe pagina exista un <span class="coloredParagraph">Sort Bar</span> pentru a putea vizualiza stirile sortate in functie de daata publicarii sau in ordine alfabetica(crescatoare sau descrescatoare)</p>
+        </div>
+        <div class="detaliere-pagini-imagine-dreapta">
+          <img src="../assets/newsPage.png" alt="newsPage">
+        </div>
       </div>
-      <div class="detaliere-pagini-text" id="right">
-        <h1 class="coloredParagraph">Pagina de profil</h1>
-        <p>Aceasta pagina este dedicata utilizatorului si a preferintelor sale.</p>
-        <p>Utilizatorul poate sa isi schimbe numele din cadrul aplicatiei, poza de profil, detaliile masinii pe care o conduce si poate adauga o mica descriere despre el.</p>
-        <p>La o derulare in jos a paginii, se va regasi butonul de editare profil care va permite editarea sau adaugarea de informatii in cadrul contului dumneavoastra.</p>
-      </div>
-    </div>
 
-    <div class="detaliere-pagini">
-      <div class="detaliere-pagini-text">
-        <h1 class="coloredParagraph">Pagina de comparare masini</h1>
-        <p>Aceasta este pagina unde se pot compara 2 autovehicule pentru a vizualiza diferente intre ele si pentru a te ajuta in decizia de achizitie sau doar pentru a afla informatii.</p>
-        <p>In prima faza se vor selecta datele autovehiculului pe care doriti sa le comparati cu ajutorul listelor derulante, selectand optiunea dorita.</p>
-        <p>Dupa selectare, sub aceste forulare exista butonul <span class="coloredParagraph">Start comparare</span>. Dupa apasarea acestui buton, se vor afisa datele autovehiculelor selectate.</p>
-        <p>Acea comparare cuprinde tot, de la dimensiunile fizice ale autovehiculului pana la detalii legate de performanta.</p>
+      <div class="detaliere-pagini">
+        <div class="detaliere-pagini-text" id="right">
+          <h1 class="coloredParagraph">Pagina de profil</h1>
+          <p>Aceasta pagina este dedicata utilizatorului si a preferintelor sale.</p>
+          <p>Utilizatorul poate sa isi schimbe numele din cadrul aplicatiei, poza de profil, detaliile masinii pe care o conduce si poate adauga o mica descriere despre el.</p>
+          <p>La o derulare in jos a paginii, se va regasi butonul de editare profil care va permite editarea sau adaugarea de informatii in cadrul contului dumneavoastra.</p>
+        </div>
+        <div class="detaliere-pagini-imagine-stanga">
+          <img src="../assets/userProfile.png" alt="userProfile">
+        </div>
       </div>
-      <div class="detaliere-pagini-imagine-dreapta">
-        <img src="../assets/comparePage.png" alt="comparePage">
-      </div>
-    </div>
 
-    <div class="detaliere-pagini">
-      <div class="detaliere-pagini-imagine-stanga">
-        <img src="../assets/forumPage.png" alt="forumPage">
+      <div class="detaliere-pagini">
+        <div class="detaliere-pagini-text">
+          <h1 class="coloredParagraph">Pagina de comparare masini</h1>
+          <p>Aceasta este pagina unde se pot compara 2 autovehicule pentru a vizualiza diferente intre ele si pentru a te ajuta in decizia de achizitie sau doar pentru a afla informatii.</p>
+          <p>In prima faza se vor selecta datele autovehiculului pe care doriti sa le comparati cu ajutorul listelor derulante, selectand optiunea dorita.</p>
+          <p>Dupa selectare, sub aceste forulare exista butonul <span class="coloredParagraph">Start comparare</span>. Dupa apasarea acestui buton, se vor afisa datele autovehiculelor selectate.</p>
+          <p>Acea comparare cuprinde tot, de la dimensiunile fizice ale autovehiculului pana la detalii legate de performanta.</p>
+        </div>
+        <div class="detaliere-pagini-imagine-dreapta">
+          <img src="../assets/comparePage.png" alt="comparePage">
+        </div>
       </div>
-      <div class="detaliere-pagini-text" id="right">
-        <h1 class="coloredParagraph">Forumul</h1>
-        <p>In cadrul acestei pagini, se pot desfasura discutii intre utilizatori, cu specificatia ca discutiile trebuie sa fie din domeniul auto.</p>
-        <p>Pentru a introduce un subiect de discutie, se va apasa btonul plus din dreapta jos. Se va deschide un modal cu un input pentru a introduce titlul si subiectul discutiei</p>
-        <p>Dupa ce subiectul este postat, se poate deschide orice card de discutie doar apasand chenarul respectiv. Se va deschide un modal cu toate detaliile afisate inainte de deschidere plus un camp de introducere de caractere pentru a comenta la postarea respectiva, alaturi de un buton pentru postarea comentariului.</p>
-        <p>De asemenea, exista posibilitatea de cautare a unui anumit subiect de discutie.</p>
+
+      <div class="detaliere-pagini">
+        <div class="detaliere-pagini-text" id="right">
+          <h1 class="coloredParagraph">Forumul</h1>
+          <p>In cadrul acestei pagini, se pot desfasura discutii intre utilizatori, cu specificatia ca discutiile trebuie sa fie din domeniul auto.</p>
+          <p>Pentru a introduce un subiect de discutie, se va apasa btonul plus din dreapta jos. Se va deschide un modal cu un input pentru a introduce titlul si subiectul discutiei</p>
+          <p>Dupa ce subiectul este postat, se poate deschide orice card de discutie doar apasand chenarul respectiv. Se va deschide un modal cu toate detaliile afisate inainte de deschidere plus un camp de introducere de caractere pentru a comenta la postarea respectiva, alaturi de un buton pentru postarea comentariului.</p>
+          <p>De asemenea, exista posibilitatea de cautare a unui anumit subiect de discutie.</p>
+        </div>
+        <div class="detaliere-pagini-imagine-stanga">
+          <img src="../assets/forumPage.png" alt="forumPage">
+        </div>
       </div>
     </div>
 
@@ -356,7 +423,7 @@ a {
 
 .titlu-detaliere-pagini {
   max-width:1200px;
-  margin:100px auto;
+  margin:0 auto;
   text-align: center;
 }
 
@@ -477,6 +544,14 @@ a#scroll-btn:before {
   animation:move-down 2s infinite;
 }
 
+.detalii1 {
+  display:block;
+}
+
+.detalii2 {
+  display:none;
+}
+
 @keyframes move-down {
   80%{
     opacity: 0.5;
@@ -519,6 +594,12 @@ a#scroll-btn:before {
   .detaliere-pagini .detaliere-pagini-text, .detaliere-pagini .detaliere-pagini-imagine-dreapta, .detaliere-pagini .detaliere-pagini-imagine-stanga{
     width:90%;
     margin:0 auto;
+  }
+  .detalii1{
+    display:none;
+  }
+  .detalii2{
+    display:block;
   }
 }
 
