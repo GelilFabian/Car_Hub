@@ -287,11 +287,13 @@ input[type=submit]{
   width:70%;
   border-bottom: 1px solid #ddd;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, .4), 0 -1px 1px #fff, 0 1px 0 #fff;
+  padding:3px;
 }
 
 .sign-in a{
-  font-size:13px;
+  font-size:15px;
   letter-spacing: normal;
+  font-weight: normal;
 }
 
 input[type=button]{
@@ -409,10 +411,10 @@ form input:focus {
 }
 @keyframes fulfilling-square-spinner-inner-animation {
   0% {
-    height: 0%;
+    height: 0;
   }
   25% {
-    height: 0%;
+    height: 0;
   }
   50% {
     height: 100%;
@@ -421,7 +423,7 @@ form input:focus {
     height: 100%;
   }
   100% {
-    height: 0%;
+    height: 0;
   }
 }
 
