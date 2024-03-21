@@ -126,6 +126,12 @@ hr {
     width:50%;
     margin-left:25%;
   }
+  h1{
+    font-size:25px;
+  }
+  p{
+    font-size: 17px;
+  }
   textarea {
     max-width:280px;
   }
