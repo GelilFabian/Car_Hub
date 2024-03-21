@@ -1,16 +1,24 @@
 <template>
 <div class="header">
+  <nav id='menu'>
+    <ul id="left">
+      <li><a href="">CARHUB</a></li>
+    </ul>
+    <ul id="right">
+      <li><a href="#" @click="scrollTo('descriere')">DESCRIEREA APLICATIEI</a></li>
+      <li><a href="#" @click="scrollTo('caracteristici')">CARACTERISTICI</a></li>
+      <li><a href="#" @click="scrollTo('detaliere')">DETALIERE PAGINI</a></li>
+    </ul>
+  </nav>
   <div class="hero-image">
     <div class="hero-text">
-      <h1>CARHUB</h1>
-      <p>Your car related app!</p>
-      <button id="demo"><router-link to="/loginPage">Try Demo</router-link></button><br>
-      <button id="scroll-btn" @click="scrollTo('section1')"></button><br><br><br><br><br>
-      <p>Click Me to scroll down</p>
+      <h1>Your car related app</h1>
+      <a id="scroll-btn" href="#" @click="scrollTo('descriere')"></a><br><br><br><br><br>
+      <p>Click Me</p>
     </div>
   </div>
 </div>
-  <div class="body" id="section1">
+  <div class="body" id="descriere">
     <div class="descriere">
       <div class="descriere-text">
         <hr>
@@ -33,7 +41,7 @@
         <img src="../assets/loginPageComputer-front.png" alt="loginPageComputer">
       </div>
     </div>
-    <div class="caracteristici">
+    <div class="caracteristici" id="caracteristici">
       <hr>
       <h1>CARACTERISTICI</h1>
       <hr>
@@ -90,7 +98,7 @@
       </div>
     </div>
 
-    <div class="titlu-detaliere-pagini">
+    <div class="titlu-detaliere-pagini" id="detaliere">
       <hr>
       <h1>DETALIERE PAGINI</h1>
       <hr>
@@ -267,6 +275,7 @@ export default {
 h1,h2,p {
   letter-spacing: 1px;
   line-height:1.5;
+  margin: 0;
 }
 
 h1{
@@ -297,15 +306,16 @@ li{
 .hero-text {
   text-align: center;
   position: relative;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   height:auto;
 }
 
 .hero-text h1{
-  font-size:100px;
-  color: red;
+  font-size:60px;
+  color: white;
+  margin-bottom: 240px;
 }
 
 .hero-text p{
@@ -319,7 +329,7 @@ button#demo {
   border:0;
   background-color: red;
   border-radius:15px;
-  margin-bottom: 30px;
+
 }
 
 button#demo:hover{
@@ -524,11 +534,11 @@ a {
   clear:both;
 }
 
-button#scroll-btn {
+a#scroll-btn {
   position:absolute;
   height: 90px;
   width: 60px;
-  border:4px solid red;
+  border:4px solid white;
   background-color: transparent;
   margin:auto;
   left:0;
@@ -536,7 +546,12 @@ button#scroll-btn {
   border-radius: 45px;
 }
 
-button#scroll-btn:before {
+a#scroll-btn:hover{
+  border:4px solid red;
+  transition: all 0.5s ease;
+}
+
+a#scroll-btn:before {
   position:absolute;
   content:"";
   margin:auto;
@@ -545,7 +560,7 @@ button#scroll-btn:before {
   height:0.6em;
   width:0.6em;
   top:0.6em;
-  background-color: red;
+  background-color: white;
   border-radius: 50%;
   animation:move-down 2s infinite;
 }
@@ -570,7 +585,7 @@ button#scroll-btn:before {
 
 @media (max-width:800px){
   .hero-text h1{
-    font-size:70px;
+    font-size:50px;
   }
   .hero-image{
     background-position: 5% center;
@@ -609,4 +624,50 @@ button#scroll-btn:before {
   }
 }
 
+
+#menu {
+  height: 80px;
+  width:100%;
+  position: absolute;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  z-index:1;
+}
+#menu ul, #menu li {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none
+}
+#menu ul {
+  padding: 15px;
+}
+#menu li {
+  display: inline-block;
+  position: relative;
+}
+#menu a {
+  display: block;
+  line-height: 80px;
+  padding: 0 14px;
+  text-decoration: none;
+  font-size: 16px;
+  color:white
+}
+#menu li a:hover{
+  transition: all 0.3s ease;
+  color: red;
+}
+#menu ul#left{
+  float:left;
+  width: 40%;
+  margin:0 auto;
+}
+#menu ul#left a{
+  font-size:35px;
+  letter-spacing: 3px;
+}
+#menu ul#right{
+  width: 48%;
+  margin:0 auto;
+}
 </style>
