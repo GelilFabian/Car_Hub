@@ -315,7 +315,7 @@ li{
 .hero-text h1{
   font-size:60px;
   color: white;
-  margin-bottom: 240px;
+  margin-bottom: 250px;
 }
 
 .hero-text p{
@@ -586,6 +586,7 @@ a#scroll-btn:before {
 @media (max-width:800px){
   .hero-text h1{
     font-size:50px;
+    margin-bottom: 150px;
   }
   .hero-image{
     background-position: 5% center;
