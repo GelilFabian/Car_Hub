@@ -20,6 +20,7 @@
           <p>Introdu-ti datele de autentificare</p>
           <p>Nu ai cont? Apasa pe Înregistrare pentru a iti crea unul</p>
           <button class="invert" id="signUp" @click="signUp = !signUp">Înregistrare</button>
+          <button class="invert"><router-link to="/">Inapoi la Landing Page</router-link></button>
         </div>
       </div>
     </div>
@@ -31,6 +32,7 @@
       <label for="remember"> Tine-ma minte</label><br>
       <input type="submit" value="Autentificare" v-on:click.prevent="Login">
       <input type="button" class="switch-form" value="Nu ai cont? Înregistrare" @click="signUp = !signUp">
+      <button><router-link to="/">Inapoi la Landing Page</router-link></button>
     </form>
     <form class="sign-up" >
       <h2>Înregistrare</h2>
@@ -210,7 +212,7 @@ p {
   margin: 20px 0 30px;
 }
 a {
-  color: #222;
+  color: white;
   text-decoration: none;
   margin: 15px 0;
   font-size: 1rem;
@@ -272,6 +274,24 @@ input[type=submit]{
   color:white;
   height: 35px;
   transition: all 0.3s ease-in-out;
+}
+
+.sign-in button{
+  background-color:#ff0000;
+  height: 35px;
+  transition: all 0.3s ease-in-out;
+  text-transform: none;
+  border: none;
+  border-radius:15px;
+  margin: 6px 0;
+  width:70%;
+  border-bottom: 1px solid #ddd;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .4), 0 -1px 1px #fff, 0 1px 0 #fff;
+}
+
+.sign-in a{
+  font-size:13px;
+  letter-spacing: normal;
 }
 
 input[type=button]{
