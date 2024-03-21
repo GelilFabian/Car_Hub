@@ -584,6 +584,9 @@ a#scroll-btn:before {
 }
 
 @media (max-width:800px){
+  .hero-text{
+    top:60%;
+  }
   .hero-text h1{
     font-size:50px;
     margin-bottom: 150px;
