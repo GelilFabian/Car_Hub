@@ -134,9 +134,9 @@ export default {
       </div>
     </div>
 
-    <button class="button" @click="comparareButon"><b>Start Comparare</b></button>
+    <button class="button" @click="comparareButon" ><b>Start Comparare</b></button>
 
-    <div class="afisare" v-if="showInfo">
+    <div class="afisare" v-if="showInfo" id="afisare">
       <table class="imagesTable">
         <tr>
           <td><img :src="carData[this.cars.carA.selectedMarca][this.cars.carA.selectedModel][this.cars.carA.selectedCaroserie][this.cars.carA.selectedMotorizare].imagine" alt="Mașină"></td>
@@ -183,29 +183,29 @@ export default {
   box-sizing: border-box;
 }
 .container {
-  margin-left:20%;
-  margin-right: 10%;
-  max-width: 1300px;
+  max-width: 1200px;
+  width:80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  margin:0 auto;
 }
 
 .form-container {
   margin-top: 150px;
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: space-between
 }
 
 .form {
   padding: 30px;
-  width: 400px;
+  width: 49%;
+  margin:0 auto;
+  max-width:500px;
   border: 2px solid #339966;
   border-radius: 20px;
-  margin-right:20px;
   background-color: rgba(0,0,0,.7);
   Backdrop-filter:blur(7px);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -214,7 +214,7 @@ export default {
 
 select {
   margin-top: 10px;
-  width:70%;
+  width:80%;
   height:30px;
   border-radius: 20px;
   border:2px solid #339966;
@@ -222,8 +222,8 @@ select {
 
 .button {
   height: 60px;
-  width:400px;
-  margin-top: 20px;
+  width:50%;
+  margin: 80px auto;
   border-radius: 20px;
   border: 2px solid #339966;
   transition: all 0.3s ease-in-out;
@@ -238,7 +238,7 @@ select {
 
 .afisare {
   color: #fff;
-  margin-top: 50px;
+  margin: 0 auto 150px auto;
   display: flex;
   animation: fadeIn 1s linear;
   width: 100%;
@@ -290,30 +290,28 @@ img{
 
 @media (max-width: 800px) {
   .container {
-    margin-left: 2%;
+    margin: 0 2% 100px 2%;
     width:96%;
   }
 
   .form-container {
     flex-direction: column;
     align-items: center;
-    margin-top:50px;
+    margin-top:25px;
     width:100%;
   }
 
   .form {
-    width: 100%;
-    max-width:400px;
-    margin-bottom: 10px;
+    width: 96%;
+    margin: 0 auto 20px auto;
     text-align: center;
-    margin-right:0;
     padding:20px;
   }
 
   .button {
     width: 100%;
     max-width:400px;
-    margin-bottom:20px;
+    margin: 30px auto 40px auto;
   }
 
   .afisare {

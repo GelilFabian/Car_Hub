@@ -113,7 +113,6 @@ export default {
 <template>
   <div class="main">
     <div class="row" style="margin-top:30px">
-      <div class="column">
         <div class="box">
           <form @submit.prevent="searchTopics">
             <input
@@ -133,7 +132,6 @@ export default {
           ></Post>
         </div>
 
-      </div>
     </div>
   </div>
 
@@ -186,17 +184,11 @@ export default {
 }
 .main {
   font-size: 28px;
-  margin-left: 20%;
   width: 60vw;
+  margin:0 auto 150px auto;
   padding: 0 10px;
   display: flex;
   flex-direction: column;
-  margin-bottom:15px;
-}
-
-.column {
-  float: left;
-  width: 100%;
 }
 
 .card {
@@ -407,7 +399,7 @@ textarea {
 
 @media (max-width: 800px) {
   .main {
-    margin-left: 0;
+    margin:0 auto 100px auto;
     width: 100%;
   }
 
@@ -419,6 +411,10 @@ textarea {
   .modal-topic {
     padding:10px;
     max-width:92%;
+  }
+
+  .bottom-button {
+    bottom: 110px;
   }
 }
 </style>

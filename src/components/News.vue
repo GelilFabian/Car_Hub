@@ -20,7 +20,6 @@ export default {
 </script>
 
 <template>
-
   <img :src="news.image" alt="News Image" class="news-image" />
   <h2>{{ news.title }}</h2>
   <h5>{{ news.date }}</h5>

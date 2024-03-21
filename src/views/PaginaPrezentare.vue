@@ -4,9 +4,9 @@
     <div class="hero-text">
       <h1>CARHUB</h1>
       <p>Your car related app!</p>
-      <button><router-link to="/loginPage">Try Demo</router-link></button><br>
-      <a id="scroll-btn" href="#section1"></a><br><br><br><br><br>
-      <p>Scroll Down</p>
+      <button id="demo"><router-link to="/loginPage">Try Demo</router-link></button><br>
+      <button id="scroll-btn" @click="scrollTo('section1')"></button><br><br><br><br><br>
+      <p>Click Me to scroll down</p>
     </div>
   </div>
 </div>
@@ -230,7 +230,7 @@
       <h1>CONCLUZII</h1>
       <hr>
       <p>Daca prezentarea aplicatiei vi s-a parut atragatoare, puteti incerca varianta demo a aplicatiei accesand link-ul de mai jos</p>
-      <button><router-link to="/loginPage">Log In / Sign Up</router-link></button>
+      <button id="demo"><router-link to="/loginPage">Log In / Sign Up</router-link></button>
     </div>
   </div>
   <div id="footer">
@@ -248,6 +248,11 @@ export default {
   },
   data(){
     return{}
+  },
+  methods: {
+    scrollTo(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }
 </script>
@@ -308,7 +313,7 @@ li{
   color: white;
 }
 
-button {
+button#demo {
   margin-top: 30px;
   padding:20px;
   border:0;
@@ -317,7 +322,7 @@ button {
   margin-bottom: 30px;
 }
 
-button:hover{
+button#demo:hover{
   background-color: #600909;
   transition:all 0.3s ease;
 }
@@ -519,18 +524,19 @@ a {
   clear:both;
 }
 
-a#scroll-btn {
+button#scroll-btn {
   position:absolute;
   height: 90px;
   width: 60px;
   border:4px solid red;
+  background-color: transparent;
   margin:auto;
   left:0;
   right:0;
   border-radius: 45px;
 }
 
-a#scroll-btn:before {
+button#scroll-btn:before {
   position:absolute;
   content:"";
   margin:auto;

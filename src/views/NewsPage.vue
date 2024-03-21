@@ -55,19 +55,19 @@ export default {
   <div class="main">
     <div class="filter-bar">
       <p style="color:white">Sortati in functie de:</p>
-      <button @click="sortBy('asc')">Alfabetic crescator</button>
-      <button @click="sortBy('desc')">Alfabetic descrescator</button>
-      <button @click="sortByDate('newest')">Cele mai Noi</button>
-      <button @click="sortByDate('oldest')">Cele mai Vechi</button>
+      <div class="button-area">
+        <button @click="sortBy('asc')">Alfabetic crescator</button>
+        <button @click="sortBy('desc')">Alfabetic descrescator</button>
+        <button @click="sortByDate('newest')">Cele mai Noi</button>
+        <button @click="sortByDate('oldest')">Cele mai Vechi</button>
+      </div>
     </div>
     <div class="row">
-      <div class="column">
         <div v-for="(news, index) in sortedNewsData" :key="index" class="card">
           <News
           :news="news"
           ></News>
         </div>
-      </div>
     </div>
   </div>
 </template>
@@ -78,10 +78,9 @@ export default {
 }
 .main {
   font-size: 28px;
-  width: 80%;
-  margin-left: 15%;
-  margin-top:30px;
   display: inline-block;
+  width:100%;
+  margin: 30px auto 100px auto;
 }
 
 img {
@@ -94,33 +93,39 @@ img {
   Backdrop-filter:blur(7px);
   color: #fff;
   padding: 20px;
-  margin-top: 20px;
-  margin-left: 150px;
-  margin-bottom: 50px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius:20px;
   border: 3px solid #80002a;
-  max-width: 1000px;
+  max-width: 1200px;
+  width:80%;
+  margin:20px auto 30px auto;
 }
 
 button {
-  height: 40px;
-  width:200px;
-  border-radius: 20px;
+  height: 50px;
+  width:24%;
+  border-radius: 15px;
   border: 2px solid #80002a;
-  margin-right:5px;
   margin-bottom:10px;
   transition: all 0.3s ease-in-out;
 }
 
 .filter-bar{
-  margin-left:250px;
   background-color: rgba(0,0,0,.8);
   Backdrop-filter:blur(7px);
   border-radius:20px;
   border: 3px solid #80002a;
-  width:850px;
   text-align:center;
+  width:80%;
+  margin:0 auto;
+  max-width: 1200px;
+}
+
+.button-area {
+  width:98%;
+  margin:0 1%;
+  display:flex;
+  justify-content: space-between
 }
 
 button:hover{
@@ -139,21 +144,19 @@ button:hover{
 
 @media (max-width:800px){
   .filter-bar{
-    margin-top:0;
-    margin-left:0;
-    width:98%;
+    width:100%;
   }
   button {
-    width:160px;
+    width:48%;
     margin-bottom:10px;
   }
   .main{
-    margin-left:2%;
-    width:96%;
-    margin-top:20px;
+    padding:15px;
+    margin-top:10px;
+    margin-bottom:70px;
   }
   .card{
-    margin-left:0;
+    width:100%;
   }
 }
 </style>

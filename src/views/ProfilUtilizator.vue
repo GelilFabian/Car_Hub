@@ -58,13 +58,17 @@ export default{
 </script>
 <template>
   <div class="main">
-    <div class="mid">
-      <UserProfileForm
-          :user="user" :editing="editing"
-      ></UserProfileForm>
+    <div class="form">
+      <div class="mid">
+        <UserProfileForm
+            :user="user" :editing="editing"
+        ></UserProfileForm>
+      </div>
+      <div class="button-area">
+        <button v-if="isCurrentUser" @click="toggleEdit" class="button" :style="{ display: !editing ? 'block' : 'none' }">Editeaza Profil</button>
+        <button @click="saveChangesToLocalStorage" class="button" :style="{ display: editing ? 'block' : 'none' }">Salveaza Modificari</button>
+      </div>
     </div>
-    <button v-if="isCurrentUser" @click="toggleEdit" class="button" :style="{ display: !editing ? 'block' : 'none' }">Editeaza Profil</button>
-    <button @click="saveChangesToLocalStorage" class="button" :style="{ display: editing ? 'block' : 'none' }">Salveaza Modificari</button>
   </div>
 </template>
 <style scoped>
@@ -72,20 +76,23 @@ export default{
   box-sizing: border-box;
 }
 .main {
-  margin-left: 30%;
-  width: 50%;
+  font-size: 25px;
   display: inline-block;
-  padding: 0 10px;
-  border: 2px solid #00004d;
+  width:100%;
+  margin: 30px auto 150px auto;
+}
+.form {
+  width: 80%;
+  max-width:1200px;
+  margin: 0 auto;
+  border: 3px solid #00004d;
   Backdrop-filter:blur(7px);
   background-color: rgba(0,0,0,.8);
   color: #fff;
   border-radius:20px;
-  margin-top:30px;
 }
 .mid {
-  margin-left: 30px;
-  margin-right: 30px;
+  margin: 0 30px;
 }
 .button {
   height: 60px;
@@ -114,6 +121,9 @@ img{
   border-radius: 50%;
   margin-right: 5px;
 }
+.button-area{
+  margin-left:50px;
+}
 
 @keyframes fadeIn {
   0% {opacity:0;}
@@ -122,6 +132,10 @@ img{
 
 @media (max-width:800px){
   .main{
+    margin: 15px 2% 100px 2%;
+    width:96%;
+  }
+  .form{
     margin:2%;
     width:96%;
   }
@@ -134,6 +148,9 @@ img{
   }
   hr {
     width:100%;
+  }
+  .button-area{
+    margin-left:0;
   }
 }
 </style>

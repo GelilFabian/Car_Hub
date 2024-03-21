@@ -26,33 +26,41 @@ export default {
       <img v-if="user.profilePicture" :src="user.profilePicture" alt="Profile Picture" class="profile-picture">
       <img v-else src="/src/assets/user.png" class="default-picture" alt="Default ProfilePicture">
       <button @click.prevent="openFileInput" style="margin-left:0" class="button" :style="{ display: editing ? 'block' : 'none' }">Încarcă imagine</button>
+      <h1 style="font-size: 50px">{{ user.username }}</h1>
+      <input v-model="user.username" type="text" :style="{ display: editing ? 'block' : 'none' }">
+      <hr>
     </div>
-    <h1 style="font-size: 50px">{{ user.username }}</h1>
-    <input v-model="user.username" type="text" :style="{ display: editing ? 'block' : 'none' }">
-    <hr>
-    <h1>Detalii Masina</h1>
-    <label for="marca">Marca masina:</label>
-    <p>{{user.carDetails.marca}}</p>
-    <input v-model="user.carDetails.marca" type="text" name="marca" :style="{ display: editing ? 'block' : 'none' }">
-    <label for="model">Model masina:</label>
-    <p>{{user.carDetails.model}}</p>
-    <input v-model="user.carDetails.model" type="text" name="model" :style="{ display: editing ? 'block' : 'none' }">
-    <label for="an">Anul fabricatiei:</label>
-    <p>{{user.carDetails.an_fabricatie}}</p>
-    <input v-model="user.carDetails.an_fabricatie" type="text" name="an" :style="{ display: editing ? 'block' : 'none' }">
-    <label for="motor">Motorizare:</label>
-    <p>{{user.carDetails.motorizare}}</p>
-    <input v-model="user.carDetails.motorizare" type="text" name="motor" :style="{ display: editing ? 'block' : 'none' }">
-    <label for="putere">Putere:</label>
-    <p>{{user.carDetails.putere}}</p>
-    <input v-model="user.carDetails.putere" type="text" name="putere" :style="{ display: editing ? 'block' : 'none' }">
-    <h1>Descriere</h1>
-    <textarea v-model="user.description" rows="10" cols="50" :style="{ display: editing ? 'block' : 'none' }"></textarea>
-    <p class="description">{{user.description}}</p>
-    <hr>
+    <div class="specs-section">
+      <h1>Detalii Masina</h1>
+      <label for="marca">Marca masina:</label>
+      <p>{{user.carDetails.marca}}</p>
+      <input v-model="user.carDetails.marca" type="text" name="marca" :style="{ display: editing ? 'block' : 'none' }">
+      <label for="model">Model masina:</label>
+      <p>{{user.carDetails.model}}</p>
+      <input v-model="user.carDetails.model" type="text" name="model" :style="{ display: editing ? 'block' : 'none' }">
+      <label for="an">Anul fabricatiei:</label>
+      <p>{{user.carDetails.an_fabricatie}}</p>
+      <input v-model="user.carDetails.an_fabricatie" type="text" name="an" :style="{ display: editing ? 'block' : 'none' }">
+      <label for="motor">Motorizare:</label>
+      <p>{{user.carDetails.motorizare}}</p>
+      <input v-model="user.carDetails.motorizare" type="text" name="motor" :style="{ display: editing ? 'block' : 'none' }">
+      <label for="putere">Putere:</label>
+      <p>{{user.carDetails.putere}}</p>
+      <input v-model="user.carDetails.putere" type="text" name="putere" :style="{ display: editing ? 'block' : 'none' }">
+      <h1>Descriere</h1>
+      <textarea v-model="user.description" rows="10" cols="50" :style="{ display: editing ? 'block' : 'none' }"></textarea>
+      <p class="description">{{user.description}}</p>
+      <hr>
+    </div>
   </form>
 </template>
 <style scoped>
+.image-section, .specs-section{
+  margin-left: 50px;
+}
+.image-section h1,p, .specs-section h1,p{
+  margin:15px 0;
+}
 input[type=text] {
   display:none;
   border-radius:20px;
@@ -123,6 +131,9 @@ hr {
   }
   hr {
     width:100%;
+  }
+  .image-section, .specs-section{
+    margin-left: 0;
   }
 }
 </style>

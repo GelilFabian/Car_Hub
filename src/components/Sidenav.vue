@@ -51,135 +51,93 @@ export default {
 }
 </script>
 <template>
-  <nav :style="{ backgroundColor: getPageClass() }">
-    <button class="toggle-button" @click="toggleSidenav()"><font-awesome-icon icon="bars" /></button>
     <aside class="sidenav" :style="{ backgroundColor: getPageClass() }" v-if="showSidenav">
-      <button class="close-button" @click="toggleSidenav()">x</button>
-      <img src="../assets/logo2.jpg" alt="CarHub">
-      <p>Welcome, {{username}}!</p>
+      <div class="logo-container">
+        <img src="../assets/logo2.jpg" alt="CarHub">
+        <p>Welcome, {{username}}!</p>
+      </div>
       <hr>
-      <div class="container">
+      <div class="link-container">
         <router-link to="/newsPage" @click.native="closeSidenav"><font-awesome-icon icon="newspaper" /> News Page</router-link>
         <router-link :to="{ name: 'profilUtilizator', params: { username: username } }" @click.native="closeSidenav"><font-awesome-icon icon="user" /> Profil Utilizator</router-link>
         <router-link to="/paginaComparare" @click.native="closeSidenav"><font-awesome-icon icon="car" /> Comparare Masini</router-link>
         <router-link to="/forum" @click.native="closeSidenav"><font-awesome-icon icon="comments" /> Forum</router-link>
-      </div>
-      <div class="logout-container">
-      <router-link to="/loginPage" @click.native="logout"><font-awesome-icon icon="sign-out" /> Log Out</router-link>
+        <router-link to="/loginPage" @click.native="logout"><font-awesome-icon icon="sign-out" /> Log Out</router-link>
       </div>
     </aside>
-  </nav>
+    <aside class="sidenav" :style="{ backgroundColor: getPageClass() }" v-if="!showSidenav">
+      <div class="link-container">
+        <router-link to="/newsPage" @click.native="closeSidenav"><font-awesome-icon icon="newspaper" /></router-link>
+        <router-link :to="{ name: 'profilUtilizator', params: { username: username } }" @click.native="closeSidenav"><font-awesome-icon icon="user" /></router-link>
+        <router-link to="/paginaComparare" @click.native="closeSidenav"><font-awesome-icon icon="car" /></router-link>
+        <router-link to="/forum" @click.native="closeSidenav"><font-awesome-icon icon="comments" /></router-link>
+        <router-link to="/loginPage" @click.native="logout"><font-awesome-icon icon="sign-out" /></router-link>
+      </div>
+    </aside>
 </template>
 <style scoped>
 * {
   box-sizing: border-box;
 }
 .sidenav {
-  height: 100%;
-  width:250px;
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  display: inline-block;
-  background-color: #ffffff;
-  animation: slideIn 0.3s linear;
-}
-.container {
-  height: 500px;
-  margin-top:30px;
-}
-.logout-container {
+  width:80%;
+  margin:0 10% 10px 10%;
+  height:100px;
   bottom:0;
-  position: absolute;
-  margin-bottom:40px;
+  position:fixed;
+  z-index:1;
+  border-radius:20px;
+  display:flex;
+}
+.link-container {
+  width:78%;
+  display:flex;
+  align-items: center;
+}
+.logo-container{
+  width:22%;
+  display:flex;
+  align-items: center;
 }
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 19px;
+  font-size: 22px;
   color: white;
   display: block;
-  height: 27%;
+  width:20%;
+  text-align: center;
   transition: .5s;
 }
 .sidenav p {
   padding: 6px 8px 6px 16px;
   color: white;
-  font-size: 19px;
+  font-size: 22px;
 }
 img {
-  margin-left:15%;
   width:100px;
   height:100px;
+  margin-left:10%;
 }
-hr {
-  border: 1px solid black
-}
-.container a:hover {
+.link-container a:hover {
   color: black;
 }
-.logout-container a:hover {
-  color: black;
-}
-.toggle-button {
-  font-size: 24px;
-  background-color: rgba(0,0,0,0);
-  color:white;
-  border: none;
-  cursor: pointer;
-  padding: 15px;
-  text-align: center;
-  text-decoration: none;
-  display: none;
-}
 
-.close-button {
-  font-size: 25px;
-  background-color: rgba(0,0,0,0);
-  color:white;
-  border: none;
-  cursor: pointer;
-  margin-left:10px;
-  text-align: center;
-  text-decoration: none;
-  display: none;
-}
-
-.toggle-button:hover, .close-button:hover {
-  background-color: rgba(0,0,0,.8);}
-@keyframes slideIn {
-  0% {transform: translateX(-100%)}
-  50% {transform: translateX(-50%)}
-  100% {transform: translateX(0%)}
-}
 @media (max-width: 800px) {
-  .toggle-button, .close-button {
-    display: block;
-  }
   .sidenav {
-    width: 100%;
+    width: 96%;
+    margin: 0 2% 10px 2%;
+    height:80px;
   }
-  nav{
-    position: sticky;
-    top: 0;
-    z-index:10;
-  }
-  .container {
-    height: 400px;
-  }
-  .logout-container{
-    margin-bottom: 40px;
+  .link-container {
+    width:100%;
   }
   .sidenav a {
-    height: 27%;
+    font-size:25px;
   }
   img {
-    width:80px;
-    height:80px;
+    margin-left:-5px;
+    padding:10px;
   }
 }
 </style>
