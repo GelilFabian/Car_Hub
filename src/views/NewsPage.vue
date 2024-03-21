@@ -147,8 +147,8 @@ button:hover{
     width:100%;
   }
   button {
-    width:48%;
-    margin-bottom:10px;
+    width:45%;
+    margin:0 2.5% 10px 2.5%;
   }
   .main{
     padding:15px;
@@ -157,6 +157,9 @@ button:hover{
   }
   .card{
     width:100%;
+  }
+  .button-area{
+    display:inline-block;
   }
 }
 </style>

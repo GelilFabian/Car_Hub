@@ -53,7 +53,7 @@ export default {
 <template>
     <aside class="sidenav" :style="{ backgroundColor: getPageClass() }" v-if="showSidenav">
       <div class="logo-container">
-        <img src="../assets/logo2.jpg" alt="CarHub">
+        <router-link to="/newsPage"><img src="../assets/logo2.jpg" alt="CarHub"></router-link>
         <p>Welcome, {{username}}!</p>
       </div>
       <hr>
@@ -99,7 +99,10 @@ export default {
   display:flex;
   align-items: center;
 }
-.sidenav a {
+.logo-container a{
+  width:40%;
+}
+.link-container a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 22px;
