@@ -36,6 +36,7 @@
           <li>Pagina de comparare a masinilor</li>
           <li>Pagina de discutii (forum)</li>
         </ul>
+        <button id="demo"><RouterLink to="/loginPage">Try demo</RouterLink></button>
       </div>
       <div class="descriere-poza">
         <img src="../assets/loginPageComputer-front.png" alt="loginPageComputer">
@@ -329,7 +330,6 @@ button#demo {
   border:0;
   background-color: red;
   border-radius:15px;
-
 }
 
 button#demo:hover{
