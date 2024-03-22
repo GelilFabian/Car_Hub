@@ -3,7 +3,7 @@
     <div class="fulfilling-square-spinner">
       <div class="spinner-inner"></div>
     </div>
-    <p>Se incarca...</p>
+    <p>Se incarca....</p>
   </div>
   <div class="body">
     <div class="wrapper" v-if="showLoginForm">
