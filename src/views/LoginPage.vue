@@ -5,47 +5,62 @@
     </div>
     <p>Se incarca...</p>
   </div>
-    <h1>Bine ai venit pe CarHub!</h1>
-  <div class="container" :class="{'sign-up-active' : signUp}">
-    <div class="overlay-container">
-      <div class="overlay">
-        <div class="overlay-left">
-          <h2>Salutare, amic nou!</h2>
-          <p>Am inteles ca nu ai un cont creat, introdu-ti datele pentru a putea crea contul!</p>
-          <p>Daca ai un cont deja creat, apasa pe Autentificare pentru a te loga in contul tau!</p>
-          <button class="invert" id="signIn" @click="signUp = !signUp">Autentificare</button>
+  <div class="body">
+    <div class="wrapper" v-if="showLoginForm">
+      <form action="">
+        <h1>Autentificare</h1>
+
+        <div class="input-box">
+          <input type="text" v-model="user.email1" placeholder="Username" required>
+          <font-awesome-icon icon="user" class="icon"/>
         </div>
-        <div class="overlay-right">
-          <h2>Hei!</h2>
-          <p>Introdu-ti datele de autentificare</p>
-          <p>Nu ai cont? Apasa pe Înregistrare pentru a iti crea unul</p>
-          <button class="invert" id="signUp" @click="signUp = !signUp">Înregistrare</button>
-          <button class="invert"><router-link to="/">Inapoi la Landing Page</router-link></button>
+
+        <div class="input-box">
+          <input type="password" v-model="user.password1" placeholder="Password" required>
+          <font-awesome-icon icon="lock" class="icon"/>
         </div>
-      </div>
+
+        <div class="remember">
+          <label><input type="checkbox" id="remember" v-model="rememberChecked" @change="rememberMe">Tine-ma minte</label>
+        </div>
+
+        <button type="submit" v-on:click.prevent="Login" class="btn">Autentifica</button>
+
+        <div class="register-link">
+          <p>Nu ai un cont? <a href="#" @click="toggleForm">Inregistrare</a></p>
+          <p>Inapoi la <router-link to="/">Landing Page</router-link></p>
+        </div>
+      </form>
     </div>
-    <form class="sign-in">
-      <h2>Autentificare</h2>
-      <input type="text" placeholder="Your email.." v-model="user.email1" maxlength="25" required>
-      <input type="password" placeholder="Your password.." v-model="user.password1" maxlength="15" minlength="8" required>
-      <input type="checkbox" id="remember" v-model="rememberChecked" @change="rememberMe" style="box-shadow: none">
-      <label for="remember"> Tine-ma minte</label><br>
-      <input type="submit" value="Autentificare" v-on:click.prevent="Login">
-      <input type="button" class="switch-form" value="Nu ai cont? Înregistrare" @click="signUp = !signUp">
-      <button><router-link to="/">Inapoi la Landing Page</router-link></button>
-    </form>
-    <form class="sign-up" >
-      <h2>Înregistrare</h2>
-      <input type="text" placeholder="Your email.." v-model="user.email" maxlength="25" required>
-      <input type="password" placeholder="Your password.." v-model="user.password" maxlength="15" minlength="8" required>
-      <input type="password" placeholder="Your confirm password.." v-model="user.confirmPassword" maxlength="15" minlength="8" required>
-      <input type="submit" value="Inregistrare" v-on:click.prevent="Signup">
-      <input type="button" class="switch-form" value="Ai un cont? Autentificare" @click="signUp = !signUp">
-    </form>
+    <div class="wrapper1" v-else>
+      <form action="">
+        <h1>Inregistrare</h1>
+
+        <div class="input-box">
+          <input type="text" v-model="user.email" placeholder="Username" required>
+          <font-awesome-icon icon="user" class="icon"/>
+        </div>
+
+        <div class="input-box">
+          <input type="password" v-model="user.password" placeholder="Password" required>
+          <font-awesome-icon icon="lock" class="icon"/>
+        </div>
+
+        <div class="input-box">
+          <input type="password" v-model="user.confirmPassword" placeholder="Confirm Password" required>
+          <font-awesome-icon icon="lock" class="icon"/>
+        </div>
+
+        <button type="submit" v-on:click.prevent="Signup" class="btn">Inregistrare</button>
+
+        <div class="register-link">
+          <p>Ai un cont? <a href="#" @click="toggleForm">Autentificare</a></p>
+        </div>
+      </form>
+    </div>
   </div>
   <ModalBox ref="modalBox" />
 </template>
-
 <script>
 import { userData } from '/src/userInfo.js';
 import { listaUseri } from "/src/userInfo.js";
@@ -63,7 +78,6 @@ export default {
       rememberChecked: false,
       isLoading: false,
       showLoginForm: true,
-      signUp: false,
     };
   },
   mounted() {
@@ -82,6 +96,9 @@ export default {
     this.listaUser = listaUseri != null ? listaUseri : []
   },
   methods: {
+    toggleForm() {
+      this.showLoginForm = !this.showLoginForm;
+    },
     rememberMe() {
       let c1 = document.getElementById('remember');
       if (c1.checked) {
@@ -109,7 +126,7 @@ export default {
       } else {
         this.$refs.modalBox.openModal('Eroare',"Parolele nu coincid!");
       }
-
+      setTimeout(this.toggleForm, 2000);
     },
     Login(){
       if(this.listaUser.length===0){
@@ -136,232 +153,12 @@ export default {
 };
 </script>
 <style scoped>
-.container {
-  position: relative;
-  display: block;
-  border-radius: 40px;
-  width: 70%;
-  max-width:800px;
-  margin-top: 40px;
-  margin-right:45%;
-  margin-left:7%;
-  height: 55vh;
-  overflow: hidden;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2);
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
 }
 
-.container .overlay-container {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
-  transition: transform .5s ease-in-out;
-  z-index:11;
-}
-.container .overlay {
-  position: relative;
-  left: -100%;
-  height: 100%;
-  width: 200%;
-  background: linear-gradient(to bottom right, rgba(255, 0, 0, 0.8), rgba(91, 8, 8, 0.8));
-  Backdrop-filter: blur(15px);
-  color: #fff;
-  transform: translateX(0);
-  transition: transform .5s ease-in-out;
-}
-.container .overlay-left {
-  position: absolute;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-  padding: 70px 40px;
-  width: calc(50% - 80px);
-  height: calc(100% - 140px);
-  text-align: center;
-  transform: translateX(-20%);
-  transition: transform .5s ease-in-out;
-}
-.container .overlay-right {
-  position: absolute;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-  padding: 70px 40px;
-  width: calc(50% - 80px);
-  height: calc(100% - 140px);
-  text-align: center;
-  transform: translateX(0);
-  transition: transform .5s ease-in-out;
-  right: 0;
-}
-h2 {
-  margin: 0;
-}
-h1 {
-  margin-left: 20%;
-  margin-top: 150px;
-  margin-right: 30%;
-}
-p {
-  margin: 20px 0 30px;
-}
-a {
-  color: white;
-  text-decoration: none;
-  margin: 15px 0;
-  font-size: 1rem;
-}
-button {
-  border-radius: 20px;
-  border: 1px solid #ff0000;
-  background-color: #ff0000;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 10px 40px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-button:active {
-  transform: scale(.9);
-}
-button:focus {
-  outline: none;
-}
-button.invert {
-  background-color: transparent;
-  border-color: #fff;
-}
-form {
-  position: absolute;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-  padding: 90px 60px;
-  width: calc(50% - 120px);
-  height: calc(100% - 180px);
-  text-align: center;
-  background: linear-gradient(to bottom, #efefef, #ccc);
-  transition: all .5s ease-in-out;
-
-}
-form div {
-  font-size: 1rem;
-}
-form input {
-  background-color: #eee;
-  border: none;
-  padding: 8px 15px;
-  margin: 6px 0;
-  width: calc(100% - 30px);
-  border-radius: 15px;
-  border-bottom: 1px solid #ddd;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .4), 0 -1px 1px #fff, 0 1px 0 #fff;
-  overflow: hidden;
-}
-input[type=submit]{
-  background-color:#ff0000;
-  color:white;
-  height: 35px;
-  transition: all 0.3s ease-in-out;
-}
-
-.sign-in button{
-  background-color:#ff0000;
-  height: 35px;
-  transition: all 0.3s ease-in-out;
-  text-transform: none;
-  border: none;
-  border-radius:15px;
-  margin: 6px 0;
-  width:70%;
-  border-bottom: 1px solid #ddd;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .4), 0 -1px 1px #fff, 0 1px 0 #fff;
-  padding:3px;
-}
-
-.sign-in a{
-  font-size:15px;
-  letter-spacing: normal;
-  font-weight: normal;
-}
-
-input[type=button]{
-  background-color:#ff0000;
-  color:white;
-  height: 35px;
-}
-
-input[type=submit]:hover{
-  background-color: #710a10;
-  cursor: pointer;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
-  transform: scale(1.05);
-}
-button:hover{
-  background-color: #5b0808;
-  cursor: pointer;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
-  transform: scale(1.05);
-}
-form input:focus {
-  outline: none;
-  background-color: #fff;
-}
-.sign-in {
-  left: 0;
-  z-index: 2;
-}
-.sign-up {
-  left: 0;
-  z-index: 1;
-  opacity: 0;
-}
-.sign-up-active .sign-in {
-  transform: translateX(100%);
-}
-.sign-up-active .sign-up {
-  transform: translateX(100%);
-  opacity: 1;
-  z-index: 5;
-  animation: show .5s;
-}
-.sign-up-active .overlay-container {
-  transform: translateX(-100%);
-}
-.sign-up-active .overlay {
-  transform: translateX(50%);
-}
-.sign-up-active .overlay-left {
-  transform: translateX(0);
-}
-.sign-up-active .overlay-right {
-  transform: translateX(20%);
-}
-@keyframes show {
-  0% {
-    opacity: 0;
-    z-index: 1;
-  }
-  49% {
-    opacity: 0;
-    z-index: 1;
-  }
-  50% {
-    opacity: 1;
-    z-index: 10;
-  }
-}
 .loading-overlay {
   position: fixed;
   top: 0;
@@ -374,9 +171,11 @@ form input:focus {
   align-items: center;
   z-index: 100;
 }
+
 .fulfilling-square-spinner , .fulfilling-square-spinner * {
   box-sizing: border-box;
 }
+
 .fulfilling-square-spinner {
   height: 100px;
   width: 100px;
@@ -384,6 +183,7 @@ form input:focus {
   border: 4px solid #ff0000;
   animation: fulfilling-square-spinner-animation 3s infinite ease;
 }
+
 .fulfilling-square-spinner .spinner-inner {
   vertical-align: top;
   display: inline-block;
@@ -392,6 +192,7 @@ form input:focus {
   opacity: 1;
   animation: fulfilling-square-spinner-inner-animation 3s infinite ease-in;
 }
+
 @keyframes fulfilling-square-spinner-animation {
   0% {
     transform: rotate(0deg);
@@ -409,6 +210,7 @@ form input:focus {
     transform: rotate(360deg);
   }
 }
+
 @keyframes fulfilling-square-spinner-inner-animation {
   0% {
     height: 0;
@@ -427,49 +229,134 @@ form input:focus {
   }
 }
 
-.switch-form {
-  display: none;
+.body{
+  text-align: center;
+  position:absolute;
+  transform: translate(60%, 50%);
 }
 
-@media(max-width:800px){
-  .overlay-container{
-    display:none;
-  }
-  .container{
-    width:90%;
-    margin-left:5%;
-    margin-right:5%;
-  }
-  form{
+.wrapper, .wrapper1{
+  width:420px;
+  background: transparent;
+  border:2px solid #544949;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0,0,0, .2);
+  color: #544949;
+  border-radius: 10px;
+  padding:30px 40px;
+}
+
+.wrapper h1, .wrapper1 h1{
+  font-size: 36px;
+  text-align: center;
+  color:red;
+}
+
+.wrapper .input-box, .wrapper1 .input-box{
+  position:relative;
+  width: 100%;
+  height: 50px;
+  margin:30px 0;
+}
+
+.input-box input {
+  width:100%;
+  height:100%;
+  background: transparent;
+  border:2px solid #544949;
+  border-radius: 40px;
+  font-size: 16px;
+  color: #544949;
+  padding:20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+  color: #544949;
+}
+
+.input-box .icon{
+  position: absolute;
+  right: 20px;
+  top:50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color:red;
+}
+
+.wrapper .remember{
+  font-size: 14.5px;
+  margin: -15px 0 15px;
+}
+
+.remember label input{
+  accent-color: #fff;
+  margin-right: 5px;
+}
+
+.wrapper .btn, .wrapper1 .btn{
+  width:100%;
+  height: 45px;
+  background: #fff;
+  border:none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0,0,0, .1);
+  cursor:pointer;
+  font-size: 16px;
+  color:#544949;
+  font-weight: 600;
+}
+
+.wrapper .btn:hover, .wrapper1 .btn:hover{
+  background: red;
+  color:#fff;
+}
+
+.wrapper .register-link, .wrapper1 .register-link{
+  font-size:14.5px;
+  text-align: center;
+  margin: 20px 0 15px;
+}
+
+.register-link p a {
+  color:red;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-link a{
+  text-decoration: none;
+  color: red;
+  font-weight: 600;
+}
+
+.register-link a:hover{
+  text-decoration: underline;
+  color:red;
+}
+
+@media (max-width: 800px){
+  .body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    transform:translate(0,50%);
     width:100%;
-    padding:90px 0;
   }
-  form input{
-    margin-left:60px;
-    margin-right:60px;
-    width:70%
+
+  .wrapper{
+    color:white;
+    border:2px solid white;
+    width:95%;
   }
-  h1{
-    margin-right:0;
-    margin-left:0;
-    margin-top: 100px;
-    text-align: center;
+
+  .input-box input::placeholder {
+    color: white;
   }
-  .switch-form {
-    display: block;
-  }
-  .sign-in,
-  .sign-up,
-  .sign-up-active .sign-in,
-  .sign-up-active .sign-up,
-  .sign-up-active .overlay-container,
-  .sign-up-active .overlay,
-  .sign-up-active .overlay-left,
-  .sign-up-active .overlay-right {
-    transform: none;
-  }
-  .sign-up {
-    opacity: 1;
+
+  .input-box input{
+    border:2px solid white;
   }
 }
 </style>

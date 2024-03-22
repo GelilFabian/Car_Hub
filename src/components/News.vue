@@ -14,13 +14,18 @@ export default {
   methods:{
     toggleCard() {
       this.expandedCardIndex=!this.expandedCardIndex
+      this.$nextTick(() => {
+        setTimeout(() => {
+          this.$refs.image.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      });
     },
   }
 }
 </script>
 
 <template>
-  <img :src="news.image" alt="News Image" class="news-image" />
+  <img :src="news.image" ref="image" alt="News Image" class="news-image" />
   <h2>{{ news.title }}</h2>
   <h5>{{ news.date }}</h5>
   <div v-show="!expandedCardIndex">

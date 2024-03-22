@@ -91,6 +91,11 @@ export default {
           this.allProperties[key] = this.carData[carA.selectedMarca][carA.selectedModel][carA.selectedCaroserie][carA.selectedMotorizare][key];
         }
       }
+      this.$nextTick(() => {
+        setTimeout(() => {
+          this.$refs.comparisonSection.scrollIntoView({ behavior: 'smooth' });
+        }, 250);
+      });
     }
   },
 }
@@ -134,9 +139,9 @@ export default {
       </div>
     </div>
 
-    <button class="button" @click="comparareButon" ><b>Start Comparare</b></button>
+    <button class="button" @click="comparareButon()"><b>Start Comparare</b></button>
 
-    <div class="afisare" v-if="showInfo" id="afisare">
+    <div class="afisare" v-if="showInfo" ref="comparisonSection">
       <table class="imagesTable">
         <tr>
           <td><img :src="carData[this.cars.carA.selectedMarca][this.cars.carA.selectedModel][this.cars.carA.selectedCaroserie][this.cars.carA.selectedMotorizare].imagine" alt="Mașină"></td>

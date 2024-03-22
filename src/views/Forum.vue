@@ -162,8 +162,7 @@ export default {
         <h2>{{ topics[selectedTopicIndex].title }}</h2>
         <p>By <router-link :to="{ name: 'profilUtilizator', params: { username: topics[selectedTopicIndex].author } }"><strong>{{ topics[selectedTopicIndex].author }}</strong></router-link></p>
         <p>{{ topics[selectedTopicIndex].message }}</p>
-        <textarea v-model="comment" rows="10" style="width:100%" placeholder="Introdu un comentariu"></textarea><br>
-        <input type="submit" value="Posteaza comentariul" @click="postComment" style="width:200px;">
+
         <div v-if="topics[selectedTopicIndex].comments && topics[selectedTopicIndex].comments.length > 0">
           <h3>Comentarii:</h3>
           <div v-for="(comment, commentIndex) in topics[selectedTopicIndex].comments" :key="commentIndex">
@@ -173,6 +172,8 @@ export default {
             </div>
           </div>
         </div>
+        <textarea v-model="comment" rows="5" style="width:100%" placeholder="Introdu un comentariu"></textarea><br>
+        <input type="submit" value="Posteaza comentariul" @click="postComment" style="width:200px;">
       </div>
     </div>
   </div>

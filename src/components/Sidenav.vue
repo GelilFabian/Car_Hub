@@ -58,9 +58,9 @@ export default {
       </div>
       <hr>
       <div class="link-container">
-        <router-link to="/newsPage" @click.native="closeSidenav"><font-awesome-icon icon="newspaper" /> News Page</router-link>
-        <router-link :to="{ name: 'profilUtilizator', params: { username: username } }" @click.native="closeSidenav"><font-awesome-icon icon="user" /> Profil Utilizator</router-link>
-        <router-link to="/paginaComparare" @click.native="closeSidenav"><font-awesome-icon icon="car" /> Comparare Masini</router-link>
+        <router-link to="/newsPage" @click.native="closeSidenav"><font-awesome-icon icon="newspaper" /> Stiri</router-link>
+        <router-link :to="{ name: 'profilUtilizator', params: { username: username } }" @click.native="closeSidenav"><font-awesome-icon icon="user" /> Profil</router-link>
+        <router-link to="/paginaComparare" @click.native="closeSidenav"><font-awesome-icon icon="car" /> Comparare</router-link>
         <router-link to="/forum" @click.native="closeSidenav"><font-awesome-icon icon="comments" /> Forum</router-link>
         <router-link to="/loginPage" @click.native="logout"><font-awesome-icon icon="sign-out" /> Log Out</router-link>
       </div>
