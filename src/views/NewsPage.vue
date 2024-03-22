@@ -56,8 +56,8 @@ export default {
     <div class="filter-bar">
       <p style="color:white">Sortati in functie de:</p>
       <div class="button-area">
-        <button @click="sortBy('asc')">Alfabetic crescator</button>
-        <button @click="sortBy('desc')">Alfabetic descrescator</button>
+        <button @click="sortBy('asc')">Alfabetic ascendent</button>
+        <button @click="sortBy('desc')">Alfabetic descendent</button>
         <button @click="sortByDate('newest')">Cele mai Noi</button>
         <button @click="sortByDate('oldest')">Cele mai Vechi</button>
       </div>
