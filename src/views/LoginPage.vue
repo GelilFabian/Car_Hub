@@ -341,11 +341,11 @@ export default {
     justify-content: center;
     align-items: center;
     position: fixed;
-    transform:translate(0,50%);
+    transform:translate(0,35%);
     width:100%;
   }
 
-  .wrapper{
+  .wrapper,.wrapper1{
     color:white;
     border:2px solid white;
     width:95%;
@@ -357,6 +357,7 @@ export default {
 
   .input-box input{
     border:2px solid white;
+    color:white;
   }
 }
 </style>
