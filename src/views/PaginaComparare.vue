@@ -228,7 +228,7 @@ select {
 .button {
   height: 60px;
   width:50%;
-  margin: 80px auto;
+  margin: 80px auto 150px auto;
   border-radius: 20px;
   border: 2px solid #339966;
   transition: all 0.3s ease-in-out;
