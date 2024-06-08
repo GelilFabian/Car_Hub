@@ -48,10 +48,15 @@ export default {
         if (!this.topics[this.selectedTopicIndex].comments) {
           this.topics[this.selectedTopicIndex].comments = [];
         }
+
+        const date = new Date();
+        const formattedDate = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
+
         this.topics[this.selectedTopicIndex].comments.push({
           author: this.getUsername(),
           content: this.comment,
-          image: this.getUserImage()
+          image: this.getUserImage(),
+          date: formattedDate
         });
         this.saveTopicsToLocalStorage();
         this.comment = '';
@@ -59,10 +64,14 @@ export default {
     },
     postTopic() {
       if (this.newTopic.title && this.newTopic.message) {
+        const date = new Date();
+        const formattedDate = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
+
         this.topics.push({
           title: this.newTopic.title,
           message: this.newTopic.message,
-          author: this.getUsername()
+          author: this.getUsername(),
+          date: formattedDate  // adăugați acest rând
         });
 
         this.saveTopicsToLocalStorage();
@@ -161,6 +170,7 @@ export default {
       <div class="modal-content" >
         <h2>{{ topics[selectedTopicIndex].title }}</h2>
         <p>By <router-link :to="{ name: 'profilUtilizator', params: { username: topics[selectedTopicIndex].author } }"><strong>{{ topics[selectedTopicIndex].author }}</strong></router-link></p>
+        <p>Postat la: {{ topics[selectedTopicIndex].date }}</p>
         <p>{{ topics[selectedTopicIndex].message }}</p>
 
         <div v-if="topics[selectedTopicIndex].comments && topics[selectedTopicIndex].comments.length > 0">
@@ -170,6 +180,7 @@ export default {
               <img :src="comment.image" alt="Avatar" style="width: 30px; height: 30px; border-radius: 50%;margin-right: 5px;">
               <p><router-link :to="{ name: 'profilUtilizator', params: { username: comment.author } }"><strong>{{ comment.author }}</strong></router-link> {{ comment.content }}</p>
             </div>
+            <p>Postat la: {{ comment.date }}</p>
           </div>
         </div>
         <textarea v-model="comment" rows="5" style="width:100%" placeholder="Introdu un comentariu"></textarea><br>

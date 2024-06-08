@@ -26,16 +26,18 @@ export default {
 
 <template>
   <img :src="news.image" ref="image" alt="News Image" class="news-image" />
-  <h2>{{ news.title }}</h2>
-  <h5>{{ news.date }}</h5>
-  <div v-show="!expandedCardIndex">
-    <p>{{ news.shortContent }}</p>
+  <div class="newstext">
+    <h2>{{ news.title }}</h2>
+    <h5>{{ news.date }}</h5>
+    <div v-show="!expandedCardIndex">
+      <p>{{ news.shortContent }}</p>
+    </div>
+    <div v-if="expandedCardIndex" class="expanded-content slide-down">
+      <pre class="formatted-text">{{ news.longContent }}</pre>
+    </div>
+    <button v-show="!expandedCardIndex" @click="toggleCard()">Afiseaza mai mult</button>
+    <button v-show="expandedCardIndex" @click="toggleCard()">Ascunde</button>
   </div>
-  <div v-if="expandedCardIndex" class="expanded-content slide-down">
-    <pre class="formatted-text">{{ news.longContent }}</pre>
-  </div>
-  <button v-show="!expandedCardIndex" @click="toggleCard()">Afiseaza mai mult</button>
-  <button v-show="expandedCardIndex" @click="toggleCard()">Ascunde</button>
 </template>
 
 <style scoped>
@@ -43,8 +45,15 @@ export default {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+.newstext{
+  text-align:justify;
+  width:70%;
+}
 p {
   font-size: 17px;
+}
+h2{
+  font-size:30px;
 }
 pre {
   font-size: 17px;
@@ -86,6 +95,9 @@ img {
   }
   h2{
     font-size:25px;
+  }
+  .newstext{
+    width:99%;
   }
 }
 </style>

@@ -3,6 +3,7 @@
   <h2>{{ topic.title }}</h2>
   <p>By {{ topic.author }}</p>
   <p>{{ topic.message }}</p>
+  <p>Postat la: {{ topic.date }}</p>
 </a>
 </template>
 <script>

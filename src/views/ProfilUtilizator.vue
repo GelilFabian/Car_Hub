@@ -82,7 +82,7 @@ export default{
   margin: 30px auto 150px auto;
 }
 .form {
-  width: 80%;
+  width: 60%;
   max-width:1200px;
   margin: 0 auto;
   border: 3px solid #00004d;
@@ -90,6 +90,7 @@ export default{
   background-color: rgba(0,0,0,.8);
   color: #fff;
   border-radius:20px;
+
 }
 .mid {
   margin: 0 30px;
@@ -99,7 +100,6 @@ export default{
   width:200px;
   margin-top: 20px;
   margin-bottom: 20px;
-  margin-left:30px;
   border-radius: 20px;
   border: 2px solid #00004d;
   transition: all 0.3s ease-in-out;
@@ -122,7 +122,8 @@ img{
   margin-right: 5px;
 }
 .button-area{
-  margin-left:50px;
+  width:30%;
+  margin:0 auto;
 }
 
 @keyframes fadeIn {

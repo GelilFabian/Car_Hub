@@ -25,8 +25,8 @@ export default {
     <div class="image-section">
       <img v-if="user.profilePicture" :src="user.profilePicture" alt="Profile Picture" class="profile-picture">
       <img v-else src="/src/assets/user.png" class="default-picture" alt="Default ProfilePicture">
-      <button @click.prevent="openFileInput" style="margin-left:0" class="button" :style="{ display: editing ? 'block' : 'none' }">Încarcă imagine</button>
-      <h1 style="font-size: 50px">{{ user.username }}</h1>
+      <button @click.prevent="openFileInput" class="button" :style="{ display: editing ? 'block' : 'none' }">Încarcă imagine</button>
+      <h1>{{ user.username }}</h1>
       <input v-model="user.username" type="text" :style="{ display: editing ? 'block' : 'none' }">
       <hr>
     </div>
@@ -55,19 +55,25 @@ export default {
   </form>
 </template>
 <style scoped>
-.image-section, .specs-section{
-  margin-left: 50px;
+form{
+  text-align: center;
 }
 .image-section h1,p, .specs-section h1,p{
   margin:15px 0;
 }
+
 input[type=text] {
   display:none;
   border-radius:20px;
   padding:5px;
+  text-align: center;
+  width:30%;
+  margin:0 auto;
 }
 .hidden {
   display: none;
+  width:30%;
+  margin:0 auto;
 }
 .profile-picture {
   width: 200px;
@@ -83,19 +89,19 @@ textarea {
   border-radius:20px;
   padding:5px;
   animation: fadeIn 1s linear;
+  width:40%;
+  margin:0 auto;
 }
 input{
   animation: fadeIn 1s linear;
 }
 .button {
   height: 60px;
-  width:200px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left:30px;
   border-radius: 20px;
   border: 2px solid #00004d;
   transition: all 0.3s ease-in-out;
+  width:30%;
+  margin:0 auto;
 }
 .button:hover {
   background-color: #00004d;
@@ -109,11 +115,12 @@ label {
 }
 p{
   color:dodgerblue;
+  font-size:20px;
 }
-hr {
-  width:50%;
-  margin-left:0;
+h1{
+  font-size: 40px;
 }
+
 .description {
   word-wrap: break-word;
 }
