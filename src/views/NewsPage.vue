@@ -97,7 +97,7 @@ img {
   border-radius:20px;
   border: 3px solid #80002a;
   max-width: 1200px;
-  width:80%;
+  width:60%;
   margin:20px auto 30px auto;
 }
 
@@ -116,7 +116,7 @@ button {
   border-radius:20px;
   border: 3px solid #80002a;
   text-align:center;
-  width:80%;
+  width:60%;
   margin:0 auto;
   max-width: 1200px;
 }

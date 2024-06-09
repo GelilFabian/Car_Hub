@@ -109,7 +109,7 @@
         <div class="detaliere-pagini-imagine-stanga">
           <img src="../assets/loginPage.png" alt="loginPage">
         </div>
-        <div class="detaliere-pagini-text" id="right">
+        <div class="detaliere-pagini-text">
           <h1 class="coloredParagraph">Login Page</h1>
           <p>Aceasta este pagina pentru autentificare sau de creare a unui cont daca acesta nu exista inca.</p>
           <p>Daca contul exista deja, doar se vor introduce datele de autentificare in formularul <span class="coloredParagraph">Autentificare</span></p>
@@ -134,7 +134,7 @@
         <div class="detaliere-pagini-imagine-stanga">
           <img src="../assets/userProfile.png" alt="userProfile">
         </div>
-        <div class="detaliere-pagini-text" id="right">
+        <div class="detaliere-pagini-text" >
           <h1 class="coloredParagraph">Pagina de profil</h1>
           <p>Aceasta pagina este dedicata utilizatorului si a preferintelor sale.</p>
           <p>Utilizatorul poate sa isi schimbe numele din cadrul aplicatiei, poza de profil, detaliile masinii pe care o conduce si poate adauga o mica descriere despre el.</p>
@@ -159,7 +159,7 @@
         <div class="detaliere-pagini-imagine-stanga">
           <img src="../assets/forumPage.png" alt="forumPage">
         </div>
-        <div class="detaliere-pagini-text" id="right">
+        <div class="detaliere-pagini-text" >
           <h1 class="coloredParagraph">Forumul</h1>
           <p>In cadrul acestei pagini, se pot desfasura discutii intre utilizatori, cu specificatia ca discutiile trebuie sa fie din domeniul auto.</p>
           <p>Pentru a introduce un subiect de discutie, se va apasa btonul plus din dreapta jos. Se va deschide un modal cu un input pentru a introduce titlul si subiectul discutiei</p>
@@ -171,7 +171,7 @@
 
     <div class="detalii2">
       <div class="detaliere-pagini">
-        <div class="detaliere-pagini-text" id="right">
+        <div class="detaliere-pagini-text">
           <h1 class="coloredParagraph">Login Page</h1>
           <p>Aceasta este pagina pentru autentificare sau de creare a unui cont daca acesta nu exista inca.</p>
           <p>Daca contul exista deja, doar se vor introduce datele de autentificare in formularul <span class="coloredParagraph">Autentificare</span></p>
@@ -196,7 +196,7 @@
       </div>
 
       <div class="detaliere-pagini">
-        <div class="detaliere-pagini-text" id="right">
+        <div class="detaliere-pagini-text">
           <h1 class="coloredParagraph">Pagina de profil</h1>
           <p>Aceasta pagina este dedicata utilizatorului si a preferintelor sale.</p>
           <p>Utilizatorul poate sa isi schimbe numele din cadrul aplicatiei, poza de profil, detaliile masinii pe care o conduce si poate adauga o mica descriere despre el.</p>
@@ -221,7 +221,7 @@
       </div>
 
       <div class="detaliere-pagini">
-        <div class="detaliere-pagini-text" id="right">
+        <div class="detaliere-pagini-text">
           <h1 class="coloredParagraph">Forumul</h1>
           <p>In cadrul acestei pagini, se pot desfasura discutii intre utilizatori, cu specificatia ca discutiile trebuie sa fie din domeniul auto.</p>
           <p>Pentru a introduce un subiect de discutie, se va apasa btonul plus din dreapta jos. Se va deschide un modal cu un input pentru a introduce titlul si subiectul discutiei</p>
@@ -325,7 +325,7 @@ li{
 }
 
 button#demo {
-  margin-top: 30px;
+  margin: 30px 0;
   padding:20px;
   border:0;
   background-color: red;
@@ -365,6 +365,7 @@ a {
 .descriere-text, .detaliere-pagini-text {
   width:50%;
   padding:20px;
+  text-align: justify;
 }
 
 .descriere-text h1{
@@ -497,10 +498,6 @@ a {
 .card .icon:hover{
   background-color: red;
   color:#0F0F0F;
-}
-
-#right{
-  text-align:right;
 }
 
 .end-card {

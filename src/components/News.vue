@@ -47,7 +47,7 @@ export default {
 }
 .newstext{
   text-align:justify;
-  width:70%;
+  width:100%;
 }
 p {
   font-size: 17px;
@@ -76,7 +76,7 @@ button:hover{
 }
 img {
   background-color: #aaa;
-  width: 70%;
+  width: 100%;
 }
 
 @media (max-width:800px){
